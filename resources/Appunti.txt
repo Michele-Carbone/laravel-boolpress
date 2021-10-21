@@ -114,7 +114,9 @@ Inserisco il link del css all interno del file guest/home.blade.php
 nella cartella resource/js creo un nuovo file e modifico anche il contenuto che non mi serve in app.js
 in webpack.mix.js aggiungo il nuovo file che ho creato nella cartella resource/js
 Rinomino il file all interno resource/js/components in App e inizio a inserire tutti i dati di Vue
+npm run dev     per caricare il file aggiunto in js
 
+In questo modo e' possibile separare i due file, app.js possiamo usarlo per la parte back-end mentre il front.js possiamo usarla per la parte front-end
 
 
 

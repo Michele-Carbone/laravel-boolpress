@@ -14,5 +14,5 @@ import App from "./components/App.vue";
 
 const app = new Vue({
     el: '#root',
-    render: h => h(App)
+    render: h => h(App)     //tramite el prende l elemento root // render serve a reinderizza e' la funzione prende un paramentro crea un evento e gli stai dicendo che la tua Home e' APP
 })
