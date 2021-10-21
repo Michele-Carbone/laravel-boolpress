@@ -74,4 +74,8 @@ avviando la pagina possiamo notare il login e il register che sono stati aggiunt
 Nella barra del browser quando facciamo ispeziona pagina abbiamo una sezione Application, e nello storage abbiamo tutti i cookies che vengono rappresentati per Dominio
 
 
+Laravel Authentication
+Dopo il login, Laravel di default reindirizza gli utenti alla rotta /home.
+Noi però vogliamo individuare l'area di amministrazione utilizzando il prefisso /admin per tutte le pagine di backoffice.
+Possiamo modificare la path nel file app/Providers/RouteServiceProvider.php
 
