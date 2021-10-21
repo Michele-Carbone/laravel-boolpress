@@ -119,7 +119,12 @@ npm run dev     per caricare il file aggiunto in js
 In questo modo e' possibile separare i due file, app.js possiamo usarlo per la parte back-end mentre il front.js possiamo usarla per la parte front-end
 
 
-
+SEEDERS
+Come creare i file Seeders per popolare le tabelle del DB
+Possiamo creare tanti seeder quante sono le tabelle usando il comando artisan. php artisan make:seeder UsersTableSeeder      //nota bene che Seeder e' al sigolare e' una classe
+Una volta creato un seeder lor troveremo nella cartella database/seeds.
+La classe Seeder contiene un metodo run() che viene eseguito ogni volta che il file viene chiamato.
+In questo metodo possiamo inserire la logica per aggiungere i dati al nostro DB.
 
 
 

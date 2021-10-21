@@ -34,6 +34,6 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->namespace('Admin')->
 
 
 // gestiamo tutte le rotte che non sono di Auth (login, register ecc..) e neanche di Admin
-Route::get('{any?}', function () {
+Route::get('{any?}', function () {  //{any?} al posto di any si puo mettere qualunque altro nome ma si usa per convenzione, ? sta a indicare 'anche niente'
     return view('guest.home');
-})->where('any', '.*');  //vuol dire prendi qualunque cosa e in qualunque quantita' (sono delle espressioni complesse .*)
+})->where('any', '.*');  //vuol dire prendi qualunque cosa e in qualunque quantita' (sono delle espressioni complesse .*) //il where() ci permette di decretare delle regole per i parametri dinamici

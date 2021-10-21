@@ -9,23 +9,26 @@
     
 </head>
 <body>
-    {{--
-    <div class="flex-center position-ref full-height">
-        @if (Route::has('login'))
-            <div class="top-right links">
-                @auth
-                    <a href="{{ url('/home') }}">Home</a>
-                @else
-                    <a href="{{ route('login') }}">Login</a>
+    <div class="container-fluid">
+        <div class="container d-flex justify-content-end my-2">
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        <a href="{{ route('admin.home') }}">Dashboard</a>
+                    @else
+                        <a href="{{ route('login') }}">Login</a>
+    
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
+        </div>
 
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}">Register</a>
-                    @endif
-                @endauth
-            </div>
-        @endif
     </div>
-    --}}
+    
+
     <div id="root">
     </div>
     <script src="{{ asset('js/front.js')}}"></script>
