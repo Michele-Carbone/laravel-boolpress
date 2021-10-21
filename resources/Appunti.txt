@@ -94,6 +94,9 @@ Creazione delle rotte per la CRUD   php artisan make:controller Admin/PostContro
 
     in Models/Post.php importo la libreria Carbon che ci servira' per le date
     modifichiamo la visuallizzazione della data in index
+2)Show  creazione del file
+    creaiamo un post con un minimo di html
+    creiamo anche la rotta per show
 
 
 
