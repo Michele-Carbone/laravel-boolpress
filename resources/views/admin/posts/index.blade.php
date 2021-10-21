@@ -4,7 +4,8 @@
 @section('content')
     
     <div class="container">
-        <table class="table">
+        <h1 class="text-center my-5">I MIEI POST</h1>
+        <table class="table my-5">
             <thead>
               <tr>
                 <th scope="col">Title</th>
