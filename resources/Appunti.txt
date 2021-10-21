@@ -98,5 +98,35 @@ Creazione delle rotte per la CRUD   php artisan make:controller Admin/PostContro
     creaiamo un post con un minimo di html
     creiamo anche la rotta per show
 
+Come usare Vue (single page application)
+apriamo la home e creaiamo con collegamento con vue con id=root
+Front-office
+Per la parte di front-office vogliamo utilizzare Vue con i suoi componenti. Ciò che dobbiamo fare è aggiungere alla fine del file web.php una rotta di fallback che va a
+mappare tutte le rotte non intercettate nelle istruzioni precedenti. Questa rotta viene gestita con una semplice closure che restituisce una view.
+
+In sostanza separare le rotte che si gestira' admin e auth che sono quelle protette con quelle che si dovra gestire la home che sono quelle pubbliche
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

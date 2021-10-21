@@ -13,9 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
 Route::get('/', function () {
     return view('guest.home');   //pke abbiamo spostato la pagina welcome in guest  //rinominiamo la page in home
 });
+*/
 
 Auth::routes(['register' => false]);  //register =>false lo facciamo pke il blog che stiamo creando non dara' accesso ad altri users
 
@@ -28,3 +30,10 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->namespace('Admin')->
 
     Route::resource('posts', 'PostController');  //rotte per CRUD implementate nella cartella Admin
 });
+
+
+
+// gestiamo tutte le rotte che non sono di Auth (login, register ecc..) e neanche di Admin
+Route::get('{any?}', function () {
+    return view('guest.home');
+})->where('any', '.*');  //vuol dire prendi qualunque cosa e in qualunque quantita' (sono delle espressioni complesse .*)
