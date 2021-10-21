@@ -84,6 +84,9 @@ Nel cartella controller creiamo una sottocartella Admin con una sua HomeControll
 mentre nel HomeController.php che fa riferimento alla parte pubblica del sito possiamo anche rimuovere la funzione del middleware('auth') pke non ne ha bisogno del controllo
 
 
+Creazione della tabella del Db con la rispettiva creazione della migration
+
+Creazione delle rotte per la CRUD   php artisan make:controller Admin/PostController --resource
 
 
 
