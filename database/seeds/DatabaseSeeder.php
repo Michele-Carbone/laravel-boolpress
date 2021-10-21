@@ -11,6 +11,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $this->call(PostsTableSeeder::class);   //tutto quello che sara' all interno di call() verra' chiamato ogni volta con il comando php artisan db:seed
     }
 }

@@ -132,6 +132,11 @@ tramite un foreach creiamo un post per ogni singolo elemento dell array in modo 
 
 Per lanciare il nostro seeder dobbiamo usare un comando  php artisan db:seed --class=PostTableSeeder
 
+nella cartella Seed abbiamo anche un altro file generato che si chiama DatabaseSeeder.php questo file serve sopratutto per le applicazioni piu' grosse
+dove altre a passare dei semplici post si necessita di passare altre informazioni come gli utenti, i team ecc.. Quindi invece di riscrivere il solito comando nel terminale, tramite la sua funzione all interno del file 
+sbloccare la chiamata che fa al PostTableSeeder.php , e trasformarlo in un array di chiamate dei seeder per poi fare un unica chiamata.
+
+
 
 Fakers
 Possiamo quindi creare dei seeders per popolare le nostre tabelle con dei dati utili
