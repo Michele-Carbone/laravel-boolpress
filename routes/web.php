@@ -19,4 +19,15 @@ Route::get('/', function () {
 
 Auth::routes(['register' => false]);  //register =>false lo facciamo pke il blog che stiamo creando non dara' accesso ad altri users
 
-Route::middleware('auth')->get('/admin', 'Admin\HomeController@index')->name('admin.home');  //modifichiamo in modo piu consono il nome della rotta aggiungendo la cartella //in secondo luogo per gestira la parte privata aggiungiamo nella middleware('auth') invece di farlo nel file HomeController.php tramite la funzione nel construct
+
+
+//Raggruppare tutte le rotte protette
+Route::middleware('auth')->group( function(){
+    
+    Route::get('/admin', 'Admin\HomeController@index')->name('admin.home');
+})
+
+
+
+
+
