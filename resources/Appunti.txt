@@ -137,19 +137,15 @@ dove altre a passare dei semplici post si necessita di passare altre informazion
 sbloccare la chiamata che fa al PostTableSeeder.php , e trasformarlo in un array di chiamate dei seeder per poi fare un unica chiamata.
 
 
+php artisan migrate:refresh --seed      ci permette di fare diversi passaggi: migrate, refresh (cancella tutte le migrazioni e le rilancia), seed (lancia le seed //occhio che per funzione la chiamata delle seeder deve provenire dal dB principale)
 
 Fakers
-Possiamo quindi creare dei seeders per popolare le nostre tabelle con dei dati utili
-alla nostra applicazione.
-Ma a volte sarà necessario dover aggiungere, semplicemente per sviluppare la nostra
-applicazione, dei dati fake che serviranno per emulare ciò che sarà effettivamente la
-nostra applicazione, una volta in produzione.
-Es. vogliamo inserire 100 post finti dentro al blog che stiamo creando, ognuno con dati finti
-ma plausibili (es. date, titoli, autori, etc..)
+Possiamo quindi creare dei seeders per popolare le nostre tabelle con dei dati utili alla nostra applicazione. Ma a volte sarà necessario dover aggiungere, semplicemente per sviluppare la nostra
+applicazione, dei dati fake che serviranno per emulare ciò che sarà effettivamente la nostra applicazione, una volta in produzione.
+Es. vogliamo inserire 100 post finti dentro al blog che stiamo creando, ognuno con dati finti ma plausibili (es. date, titoli, autori, etc..)
+per la creazione di post finti lanciare questo per rimuovere quello vecchio composer remove fzaninotto/faker , lanciare questo comando composer require fakerphp/faker per quello nuovo
 
-
-
-
+Per creare i post finti dobbiamo cancellare quelli vecchi e dopo importare la classe faker nella cartella seeds
 
 
 
