@@ -104,12 +104,16 @@ Front-office
 Per la parte di front-office vogliamo utilizzare Vue con i suoi componenti. Ciò che dobbiamo fare è aggiungere alla fine del file web.php una rotta di fallback che va a
 mappare tutte le rotte non intercettate nelle istruzioni precedenti. Questa rotta viene gestita con una semplice closure che restituisce una view.
 
-In sostanza separare le rotte che si gestira' admin e auth che sono quelle protette con quelle che si dovra gestire la home che sono quelle pubbliche
+In sostanza separare le rotte che si gestira' admin e auth che sono quelle protette con quelle che si dovra gestire la home che sono quelle pubbliche oppure tutto quello che non sappiamo deve arrivare a Vue
 
 
+La view guest/home.blade.php corrisponde allo scheletro html di tutto il front-office con i collegamenti al foglio di stile e al file javascript.
+Il suo contenuto però è vuoto: all'interno del tag body c'è solamente un div in cui poi si inserirà Vue.
 
-
-
+Inserisco il link del css all interno del file guest/home.blade.php
+nella cartella resource/js creo un nuovo file e modifico anche il contenuto che non mi serve in app.js
+in webpack.mix.js aggiungo il nuovo file che ho creato nella cartella resource/js
+Rinomino il file all interno resource/js/components in App e inizio a inserire tutti i dati di Vue
 
 
 
