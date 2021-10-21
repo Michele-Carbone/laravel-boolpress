@@ -88,7 +88,12 @@ Creazione della tabella del Db con la rispettiva creazione della migration
 
 Creazione delle rotte per la CRUD   php artisan make:controller Admin/PostController --resource
 1) Creazione del file index.blade.php
+    creazione della tabella per i posto
+    creazione link per il singolo post
+    creazione di due post fittizzi sul DB
 
+    in Models/Post.php importo la libreria Carbon che ci servira' per le date
+    modifichiamo la visuallizzazione della data in index
 
 
 
