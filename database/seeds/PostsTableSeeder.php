@@ -5,6 +5,7 @@ use Illuminate\Support\Str;     //importiamo str
 use App\Models\Post;        //importiamo post
 
 use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;        //as vuol dire alias //importiamo FAker
 
 class PostsTableSeeder extends Seeder
 {
@@ -13,8 +14,11 @@ class PostsTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
+        /*
+        Ora stiamo creando dei post faker di conseguenza questa procedura non ci serve
+        
         //inseriamo la logica per creare dei record sul db (tupla)
 
         //prendiamo un array per passare i dati al foreach per creare un post
@@ -38,7 +42,7 @@ class PostsTableSeeder extends Seeder
             /*
             $newPost->title = $post['title'];
             $newPost->content = $post['content'];
-            $newPost->image = $post['image'];*/
+            $newPost->image = $post['image'];
 
             //altro metodo con il fill()
             $newPost->fill($post);      //non basta ma si deve aggiungere il fillable al file Models/Post.php
@@ -46,6 +50,19 @@ class PostsTableSeeder extends Seeder
             $newPost->slug = Str::slug($newPost->title, '-');
 
             $newPost->save();
+        }*/
+
+
+        //FAKER creaiamo 50 post
+        for ($i = 0; $i < 50; $i++) {
+            $post = new Post();
+
+            $post->title = $faker->text(50);    // il 50 sta a indicare i caratteri e non le parole
+            $post->content = $faker->paragraphs(2, true);
+            $post->image = $faker->imageUrl(250, 250);
+            $post->slug = Str::slug($post->title, '-');
+
+            $post->save();
         }
     }
 }
