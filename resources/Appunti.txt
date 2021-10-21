@@ -126,7 +126,21 @@ Una volta creato un seeder lor troveremo nella cartella database/seeds.
 La classe Seeder contiene un metodo run() che viene eseguito ogni volta che il file viene chiamato.
 In questo metodo possiamo inserire la logica per aggiungere i dati al nostro DB.
 
+all interno della funzione run() gli importiamo sia Post e sia Str pke ci serviranno per la creazione delle tupla della tabella
+Prendiamo un array associativo con i dati al suo interno simili all organizzazione del DB
+tramite un foreach creiamo un post per ogni singolo elemento dell array in modo da riempire la tabella
 
+Per lanciare il nostro seeder dobbiamo usare un comando  php artisan db:seed --class=PostTableSeeder
+
+
+Fakers
+Possiamo quindi creare dei seeders per popolare le nostre tabelle con dei dati utili
+alla nostra applicazione.
+Ma a volte sarà necessario dover aggiungere, semplicemente per sviluppare la nostra
+applicazione, dei dati fake che serviranno per emulare ciò che sarà effettivamente la
+nostra applicazione, una volta in produzione.
+Es. vogliamo inserire 100 post finti dentro al blog che stiamo creando, ognuno con dati finti
+ma plausibili (es. date, titoli, autori, etc..)
 
 
 
