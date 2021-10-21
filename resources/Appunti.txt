@@ -87,6 +87,7 @@ mentre nel HomeController.php che fa riferimento alla parte pubblica del sito po
 Creazione della tabella del Db con la rispettiva creazione della migration
 
 Creazione delle rotte per la CRUD   php artisan make:controller Admin/PostController --resource
+1) Creazione del file index.blade.php
 
 
 
