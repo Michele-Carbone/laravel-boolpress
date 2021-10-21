@@ -25,4 +25,6 @@ Auth::routes(['register' => false]);  //register =>false lo facciamo pke il blog
 Route::middleware('auth')->name('admin.')->prefix('admin')->namespace('Admin')->group(function () {
 
     Route::get('/', 'HomeController@index')->name('home');
+
+    Route::resource('posts', 'PostController');  //rotte per CRUD implementate nella cartella Admin
 });

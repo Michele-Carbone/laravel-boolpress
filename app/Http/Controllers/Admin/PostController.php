@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Models\Post;        //importiamo da models Post.php
+use App\Models\Post;        //importiamo da models Post.php
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -16,6 +16,9 @@ class PostController extends Controller
     public function index()
     {
         //
+        $posts = Post::all();
+
+        return view('admin.posts.index', compact('posts'));
     }
 
     /**
