@@ -1,0 +1,77 @@
+AUTENTICAZIONE
+
+Vediamo come funzione un login
+il login viene creato con un form pke l utente dovra inserire i propri dati e il form e' il modo per interagire con esso.
+il form avra' come action="/password-check"
+Il controller riceve i dati della view (username e password), li controlla e decide se sono corretti oppure no
+Le informazioni contenute nel form vengono inviate in POST alla pagina /password-check. Non vengono inviate in GET pke se no possono essere accessibiti a tutti
+Ovviamente le password che sono la parte piu sensibile dei nostri dati non vengono inviati in maniera diretta in reta senza una protezione.
+Per questo si utilizzano le funzioni di HASHING. Le funzioni di hashing sono delle funzioni non invertibili(la stringa di hashing che viene generata non potra essere usate per ottere il processo inverso cioe' la nostra password) che trasformano una stringa di lunghezza arbitraria in una stringa di lunghezza prefissata.(criptando la nostra password)
+
+HASHING FUNCTION
+ad ogni testo di input corrisponde uno e uno solo output(hash). Indipendentemente dalla lunghezza della password che noi inseriamo l output(hash) avra' sempre una lunghezza ben definita
+le funzioni piu' di hashing piu' usate sono SHA, MD5, BCRYPY.
+
+quindi il DB sotto banco che cosa fa? 
+l utente reinserisce la password, il db con la funzione di hashing genera nuova la sua stringa, confronta la stringa generata con quella che lui ha memorizzato in precedente e se coincidono allora si puo' accedere in caso contrario no.
+
+le funzioni hashing le possiamo usare anche tramite JS (vedi slide 620 Laravel-Authentication)
+
+Rainbow Tables e' un sito che detiene tutte le stringhe hashing delle password piu' comuni
+
+Quando il db salva la stringa hashing non e' una ottima soluzione pke si puo' applicare il processo inverso cioe' passare dalla stringa hashing alla password vera e propria.
+Quindi per proteggersi da questo procedimento inverso si usano i SALT (ne esistono molti altri).
+Il salt che anch'essa una stringa hash generata in maniera casuale dal nostro db che si aggancera' alla nostra stringa hash per avere una maggiore protezione.
+
+la password memorizzata nel DB sara': hash(password_plaintext + salt)
+
+Attenzione che se i siti ci rimandamo in maniera chiara e leggibile la nostra password vuol dire che non e' un sito sicuro pke non stanno proteggendo la password.
+
+E una volta autenticato?
+Una volta autenticato, come fa il server a ricordarsi che l’utente si è autenticato correttamente?
+Con due strumenti, cookie e sessioni:
+- Il cookie è un pezzo di informazione che rimane sul browser dell’utente; (salvano i dati per un breve periodo)
+- La sessione è una informazione che rimane salvata sul server; (simile alla session generata nell esercizio delle crud completo)
+Se c’è un cookie che contiene un identificativo (token) che corrisponde ad una sessione salvata sul server,
+allora l’utente è autenticato.
+
+Laravel Magic
+Con Laravel, tutta questa complessità è già gestita e pronta da utilizzare e ciò è un bene:
+l’implementazione di codice che gestisce autenticazione e più in generale, sicurezza, è
+estremamente critico, basta una piccola distrazione per creare bug e consentire accessi indesiderati.
+Sfruttare il codice scritto da esperti, e visto e rivisto da vari occhi ci dà un grande sicurezza sul fatto
+che il codice sia sicuro, testato ad affidabile.
+Potreste dire lo stesso del vostro codice?
+
+Laravel Magic
+Laravel gestisce/fornisce:
+- Una pagina di login
+- Una tabella utenti
+- Tutti i controller necessari per fare login, logout, registrazione della password, reset password
+- Tutto il sistema di gestione delle sessioni per verificare se un utente è autenticato, sia nel controller che direttamente in Blade
+
+laravel ci da un pacchettino extra di autentificazione ' composer require laravel/ui:^2.4'
+con questo verifichiamo dei cambiamenti nel package.json
+Con questo pacchetto noi non gestiremo la logica dei dati e nella loro riservatezza
+
+Serve a gestire la parte fron-end per la gestione dei dati vedendo la documentazione possiamo gestire tante cose come bootstrap/vue ecc.. (leggere la documentazione)
+
+php artisan ui vue --auth (vediamo come interagisce vue con laravel), seguiamo la procedura che ci dice il terminale di fare npm install && npm run dev
+ci andra' a scaricare la versione bootstrap 4.0 quindi occhio alla documentazione di bootstrap
+ci ha creato i file di sass variables.scss , in app.scss ha importato le librerie con i rispettivi collegamenti
+in view ci ha creato i due file di home.blade.php e welcome.blade.php , una cartella layout, la cartella auth (gestira' la parte del login) al suo interno la cartella password( con tutti i file che ci servono per la registrazione dei dati e la loro sicurezza)
+
+
+nel cartella Controller abbiamo un altra cartella auth( con tutti controller inerenti)
+
+web.php abbiamo una rotta della homeController e le rotte della autentificazione con Auth       php artisan route:list possiamo vedere tutte le rotte di Auth
+
+facciamo la migration delle rotte
+
+avviando la pagina possiamo notare il login e il register che sono stati aggiunti alla solita pagina di laravel
+
+
+Nella barra del browser quando facciamo ispeziona pagina abbiamo una sezione Application, e nello storage abbiamo tutti i cookies che vengono rappresentati per Dominio
+
+
+
