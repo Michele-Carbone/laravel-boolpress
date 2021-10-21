@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('guest.welcome');   //pke abbiamo spostato la pagina welcome in guest
+    return view('guest.home');   //pke abbiamo spostato la pagina welcome in guest
 });
 
 Auth::routes(['register' => false]);  //register =>false lo facciamo pke il blog che stiamo creando non dara' accesso ad altri users
