@@ -22,9 +22,9 @@ Auth::routes(['register' => false]);  //register =>false lo facciamo pke il blog
 
 
 //Raggruppare tutte le rotte protette
-Route::middleware('auth')->group( function(){
+Route::middleware('auth')->name('admin.')->group( function(){
     
-    Route::get('/admin', 'Admin\HomeController@index')->name('admin.home');
+    Route::get('/admin', 'Admin\HomeController@index')->name('home');
 })
 
 
