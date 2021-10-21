@@ -19,4 +19,4 @@ Route::get('/', function () {
 
 Auth::routes(['register' => false]);  //register =>false lo facciamo pke il blog che stiamo creando non dara' accesso ad altri users
 
-Route::get('/home', 'HomeController@index')->name('home');  //bisogna andare nella HomeController@index per modificare la route aggiungendo la cartella admin
+Route::get('/admin', 'HomeController@index')->name('home');  //bisogna andare nella HomeController@index per modificare la route aggiungendo la cartella admin
