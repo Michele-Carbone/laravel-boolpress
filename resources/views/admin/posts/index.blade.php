@@ -4,7 +4,11 @@
 @section('content')
     
     <div class="container">
-        <h1 class="text-center my-5 ">I MIEI POST</h1>
+        <header class="text-center my-5 d-flex justify-content-between align-items-center ">
+            <h1 class="font-weight-bold">I MIEI POST</h1>
+            <a href="{{ route('admin.posts.create') }}" class="btn btn-success">Crea Nuovo Post</a>
+        </header>
+        
         <table class="table my-5 bg-dark text-white font-weight-bold">
             <thead>
               <tr>
@@ -18,7 +22,15 @@
                 <tr>
                     <td>{{ $post->title }}</td>
                     <td>{{ $post->getFormattedDate('created_at', 'd-m-Y') }}</td>
-                    <td><a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-primary">Vai</a></td>
+                    <td class="d-flex justify-content-end">
+                        <a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-primary">Vai</a>
+                        <a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-warning ml-2">Modifica</a>
+                        <form action="{{ route('admin.posts.destroy', $post->id) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger ml-2">Elimina</button>
+                        </form>
+                    </td>
                 </tr>
                 @empty
                 <tr>
