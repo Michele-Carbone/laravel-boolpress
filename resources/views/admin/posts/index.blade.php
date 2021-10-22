@@ -32,7 +32,7 @@
                     <td class="d-flex justify-content-end">
                         <a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-primary">Vai</a>
                         <a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-warning ml-2">Modifica</a>
-                        <form action="{{ route('admin.posts.destroy', $post->id) }}" method="post">
+                        <form action="{{ route('admin.posts.destroy', $post->id) }}" method="post" class="delete-button">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger ml-2">Elimina</button>
@@ -51,6 +51,20 @@
             {{ $posts->links()}}
         </footer>
     </div>
+    <!-- Messaggi di conferma all utente per l eleminazione del post -->
+    @section('scripts')
+        <script>
+            const deleteButtons = document.querySelectorAll('.delete-button');  //querySelectorAll() ci permette di prendere piu di un elemento
+
+            deleteButtons.forEach(form => {
+                form.addEventListener('submit', function (event) {
+                    event.preventDefult();
+                    const conf = confirm('Sei sicuro di voler cancellare questo post?');
+                    if (conf) this.submit();
+                });
+            });
+        </script>
+    @endsection
 @endsection
 
 
