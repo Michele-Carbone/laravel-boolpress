@@ -138,6 +138,8 @@ sbloccare la chiamata che fa al PostTableSeeder.php , e trasformarlo in un array
 
 
 php artisan migrate:refresh --seed      ci permette di fare diversi passaggi: migrate, refresh (cancella tutte le migrazioni e le rilancia), seed (lancia le seed //occhio che per funzione la chiamata delle seeder deve provenire dal dB principale)
+(eseguire l operazione di sopra comporta la cancellazione anche dell utente registrato)
+
 
 Fakers
 Possiamo quindi creare dei seeders per popolare le nostre tabelle con dei dati utili alla nostra applicazione. Ma a volte sarà necessario dover aggiungere, semplicemente per sviluppare la nostra

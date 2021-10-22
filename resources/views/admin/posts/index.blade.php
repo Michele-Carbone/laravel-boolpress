@@ -4,8 +4,8 @@
 @section('content')
     
     <div class="container">
-        <h1 class="text-center my-5">I MIEI POST</h1>
-        <table class="table my-5">
+        <h1 class="text-center my-5 ">I MIEI POST</h1>
+        <table class="table my-5 bg-dark text-white font-weight-bold">
             <thead>
               <tr>
                 <th scope="col">Title</th>
@@ -27,6 +27,10 @@
                 @endforelse
               
           </table>
+
+        <footer class="d-flex justify-content-center">
+            {{ $posts->links()}}
+        </footer>
     </div>
 @endsection
 
