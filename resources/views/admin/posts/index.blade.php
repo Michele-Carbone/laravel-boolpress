@@ -53,17 +53,7 @@
     </div>
     <!-- Messaggi di conferma all utente per l eleminazione del post -->
     @section('scripts')
-        <script>
-            const deleteButtons = document.querySelectorAll('.delete-button');  //querySelectorAll() ci permette di prendere piu di un elemento
-
-            deleteButtons.forEach(form => {
-                form.addEventListener('submit', function (event) {
-                    event.preventDefult();
-                    const conf = confirm('Sei sicuro di voler cancellare questo post?');
-                    if (conf) this.submit();
-                });
-            });
-        </script>
+    <script src="{{ asset('js/confirm-delete.js')}}"></script>
     @endsection
 @endsection
 
