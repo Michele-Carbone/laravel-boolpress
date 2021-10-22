@@ -18,7 +18,7 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts = Post::paginate(10);    //impaginazione di 10 elementi
+        $posts = Post::orderBy('id', 'desc')->paginate(10);    //impaginazione di 10 elementi
 
         return view('admin.posts.index', compact('posts'));
     }
@@ -31,7 +31,7 @@ class PostController extends Controller
     public function create()
     {
         //
-        $posts = new Post();
+        $post = new Post();
 
         return view('admin.posts.create', compact('post'));
     }
@@ -49,7 +49,7 @@ class PostController extends Controller
 
         $post = new Post();
         $post->fill($data);
-        $post->slug = Str::slug($post, '-');
+        $post->slug = Str::slug($post->title, '-');
 
         $post->save();
 
