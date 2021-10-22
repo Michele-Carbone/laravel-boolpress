@@ -17,6 +17,7 @@
         <table class="table my-5 bg-dark text-white font-weight-bold">
             <thead>
               <tr>
+                <th scope="col">#</th>
                 <th scope="col">Title</th>
                 <th scope="col">Scritto il</th>
                 <th scope="col"></th>
@@ -25,6 +26,7 @@
             <tbody>
                 @forelse ($posts as $post)
                 <tr>
+                    <th scope="row">{{ $post->id }}</th>
                     <td>{{ $post->title }}</td>
                     <td>{{ $post->getFormattedDate('created_at', 'd-m-Y') }}</td>
                     <td class="d-flex justify-content-end">
