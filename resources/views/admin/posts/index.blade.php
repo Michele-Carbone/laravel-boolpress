@@ -4,6 +4,11 @@
 @section('content')
     
     <div class="container">
+        @if (session('alert-message'))
+            <div class="alert alert-{{ session('alert-type')}}">
+                {{ session('alert-message')}}
+            </div>
+        @endif
         <header class="text-center my-5 d-flex justify-content-between align-items-center ">
             <h1 class="font-weight-bold">I MIEI POST</h1>
             <a href="{{ route('admin.posts.create') }}" class="btn btn-success">Crea Nuovo Post</a>
