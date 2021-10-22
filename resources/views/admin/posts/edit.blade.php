@@ -4,31 +4,14 @@
 @section('content')
     
     <div class="container">
-        <header>
+        <header class="d-flex justify-content-between align-items-center">
             <h1>Modifica Post</h1>
+            <a href="{{ route('admin.posts.index') }}" class="btn btn-success">Indietro</a>
         </header>
+        
 
         <section id="form">
-            <form method="POST" action="{{ route('admin.posts.update', $post->id) }}">
-                @csrf
-                @method('PATCH')
-                <div class="form-group">
-                  <label for="title">Email address</label>
-                  <input type="text" class="form-control" id="title" name="title" placeholder="Scrivi il Titolo del Post" required value="{{ $post->title }}">
-                </div>
-                
-                <div class="form-group">
-                  <label for="content">Contenuto del post</label>
-                  <textarea class="form-control" id="content" name="content" rows="5" >{{ $post->content }}"</textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="image">immagine</label>
-                    <input type="text" class="form-control" id="image" name="image" placeholder="Inserisci l'url di una immagine" value="{{ $post->image }}">
-                </div>
-
-                <button type="submit" class="btn btn-success">Salva</button>
-              </form>
+           @include('includes.admin.posts.form')
         </section>
     </div>
 @endsection
