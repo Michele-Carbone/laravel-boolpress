@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class PostController extends Controller
 {
@@ -49,6 +50,10 @@ class PostController extends Controller
             'title' => 'required|string|unique:posts|min:3',
             'content' => 'required|string',
             'image' => 'string'
+        ], [
+            'required' => 'Il campo :attribute è obbligatorio',
+            'min' => 'Il minimo di caratteri per il campo :attribute è :min',
+            'title.unique' => 'Il titolo inserito esiste già'
         ]);
 
 
@@ -96,7 +101,16 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        //Validazione
+        $request->validate([
+            'title' => ['required', 'string', Rule::unique('posts')->ignore($post->id), 'min:3'],
+            'content' => 'required|string',
+            'image' => 'string'
+        ], [
+            'required' => 'Il campo :attribute è obbligatorio',
+            'min' => 'Il minimo di caratteri per il campo :attribute è :min',
+            'title.unique' => 'Il titolo inserito esiste già'
+        ]);
 
         $data = $request->all();
 

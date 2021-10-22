@@ -12,17 +12,17 @@
     
     <div class="form-group">
       <label for="title">Titolo</label>
-      <input type="text" class="form-control" id="title" name="title" placeholder="Scrivi il Titolo del Post" value="{{ $post->title }}">
+      <input type="text" class="form-control" id="title" name="title" placeholder="Scrivi il Titolo del Post" value="{{ old('title', $post->title) }}">
     </div>
     
     <div class="form-group">
       <label for="content">Contenuto del post</label>
-      <textarea class="form-control" id="content" name="content" rows="5" >{{ $post->content }}</textarea>
+      <textarea class="form-control" id="content" name="content" rows="5" >{{ old('content', $post->content) }}</textarea>
     </div>
 
     <div class="form-group">
         <label for="image">immagine</label>
-        <input type="text" class="form-control" id="image" name="image" placeholder="Inserisci l'url di una immagine" value="{{ $post->image }}">
+        <input type="text" class="form-control" id="image" name="image" placeholder="Inserisci l'url di una immagine" value="{{ old('image', $post->image) }}">
     </div>
 
     <button type="submit" class="btn btn-success">Salva</button>
