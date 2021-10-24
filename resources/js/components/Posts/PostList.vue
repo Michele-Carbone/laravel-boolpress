@@ -37,7 +37,14 @@ export default {
       axios
         .get(`${this.baseUri}/api/posts`)
         .then((res) => {
-          this.posts = res.data.data; //Aggiunta di un altro data pke abbiamo modificato il Api/PostController.php la index per visualissare solo 5 post  per volta. questo ha comportato la creazione di un oggetto che ha come chiave data(si puo usare postman per vedere il nome della chiave che e' stata passata)
+          /*
+            this.posts = res.data.data; //Aggiunta di un altro data pke abbiamo modificato il Api/PostController.php la index per visualissare solo 5 post  per volta. questo ha comportato la creazione di un oggetto che ha come chiave data(si puo usare postman per vedere il nome della chiave che e' stata passata)
+            */
+          /*Un altro modo di scrivere migliore a quello di sopra e' scriverlo sotto forma di oggetto pke si ha la possibilita di importare piu elementi all interno dell oggetto
+            dall array associativo che vediamo in postman, quindi invece di ripetere ogni volta tutto quello di cui abbiamo bisogno con questo procedimento li possiamo raggruppare tutti */
+          const { data, current_page, last_page } = res.data; //DESTRUCTURING
+          this.posts = data;
+
           this.isLoading = false;
         })
         .catch((err) => {
