@@ -168,7 +168,7 @@ Route::resource('posts', 'PostController');
 
 Nella chiamata Api destroy quando si alimina un elemento, in json non ci si aspetta una vera e propria risposta pero' e' utile metterla come in questo caso    //con postman possiamo verifichere se e' corretto quello scritto cambiando anche le chiamate mettendo su DELETE e poi su GET ecc..
 
-
+Laravel ci permette di navigare all interno delle nostre pagine dei post grazie alla funzione paginate(5), con postman possiamo vedere che aggiungendo il numero della pagina  http://127.0.0.1:8001/api/posts?posts=2  possiamo vedere quali post ci sono all interno 
 
 
 
