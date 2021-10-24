@@ -14,7 +14,12 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        // copiando il contenuto dell Api e verificandolo su postman possiamo capire se la chiamata sta funzionando correttamente oppure no
+        return response()->json([
+            'students' => ['Cristina', 'Alessandra', 'Damiano', 'Rocco'],
+            'teacher' => 'Marco',
+            'total' => 32
+        ]);
     }
 
     /**
