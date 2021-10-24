@@ -19,6 +19,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
+//Esempio di chiamata Api //possiamo verificare la chiamata che funziona andando http://127.0.0.1:8001/api/test lo vediamo pke e' in get e possiamo chiamarlo, e troviamo un json
+Route::get('/test', function () {
+    return response()->json([
+        'students' => ['Cristina', 'Alessandra', 'Damiano', 'Rocco'],
+        'teacher' => 'Marco',
+        'total' => 32
+    ]);
+});
+
+
 
 /*Primo metodo di chiamata
 Route::get('/posts', 'Api\PostController@index');   //rotta Api che ci chiama le Api CRUD   //primo parametro per avere l Url per avere le condizioni rest e' posts (nome della risorsa al plurale) //secondo parametro cartella Api/ nome del file controller
