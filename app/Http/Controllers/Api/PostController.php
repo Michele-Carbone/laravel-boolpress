@@ -22,9 +22,7 @@ class PostController extends Controller
 
         $posts = Post::all();
 
-        $name = 'Marco';
-        return response()->json(['posts' => $posts, 'name' => $name]);    //questo funziona solo se abbiamo una collection ma se volessimo importare altro allora all interno di json() bascriverlo con compact() oppure con un array associativo 
-        //return response()->json(compact('posts', 'name' )); 
+        return response()->json($posts);
     }
 
     /**
@@ -44,9 +42,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
         //
+
+        return response()->json($post);
     }
 
     /**
