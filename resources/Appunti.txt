@@ -149,6 +149,37 @@ per la creazione di post finti lanciare questo per rimuovere quello vecchio comp
 
 Per creare i post finti dobbiamo cancellare quelli vecchi e dopo importare la classe faker nella cartella seeds
 
+API
+il nodo di scrittura delle rotte per le API sono le stesse ma il file da prendere sara' api.php
+Nelle rotte laravel sotto banco ci mette davanti sempre il prefisso api/
+Pressa che le rotte web ci restituiscono una pagina mentre le rotte API ci restituiscono un qualcosa in un linguaggio ponte il piu' diffisu sono i Jason ma possono anche essere XML.
+
+I nostri metodi restituiranno un insieme di dati, spesso in formato JSON, per permetterne ad esempio l'utilizzo con una chiamata Axios.
+Quindi i metodi del Controller non restituranno più delle View come facevamo per le rotte web, bensì un json!
+Come creare un JSON
+Al termine del nostro metodo (vuol dire che dopo che noi abbiamo creato tutta la struttura facendo tutto quello che ci serve, dopo) nel Controller quindi chiameremo il metodo response()->json(array) (l array di json sara' un array associativo);
+L'array verrà trasformato in un JSON vero e proprio da consegnare all’utente (chi ha chiamato la nostra API).
+JSON = javascript Object Notation
+
+Per i controller Api creiamo una cartella separata pke come detto le Api ci restituiscono un Jason mentre i controller delle pagine ci restituiscono una view(una pagina)
+Per sfruttare al massimo laravel usiamo questo comando php artisan make:controller Api/PostController --api  pke ci creare tutti collegamenti di cui avremo bisogno senza che noi gli facciamo, pke sa che noi voglio usare le Api e ci toglie gli elementi delle CRUD che non ci servono
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

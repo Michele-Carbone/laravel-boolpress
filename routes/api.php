@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+
+
+Route::get('/posts', 'Api\PostController@index');   //rotta Api che ci chiama le Api CRUD   //primo parametro per avere l Url per avere le condizioni rest e' posts (nome della risorsa al plurale) //secondo parametro cartella Api/ nome del file controller
