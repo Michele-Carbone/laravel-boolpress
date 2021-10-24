@@ -2052,6 +2052,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // import axios from 'axios';  //importare axios primo metodo //secondo metodo in front.js
 
 
@@ -38606,13 +38616,67 @@ var render = function() {
     [
       _c("h2", [_vm._v("I miei Post")]),
       _vm._v(" "),
-      _vm.isLoading ? _c("Loader") : _vm._e(),
-      _vm._v(" "),
-      _vm._l(_vm.posts, function(post) {
-        return _c("PostCard", { key: post.id, attrs: { post: post } })
-      })
+      _vm.isLoading
+        ? _c("Loader")
+        : _c(
+            "div",
+            [
+              _vm._l(_vm.posts, function(post) {
+                return _c("PostCard", { key: post.id, attrs: { post: post } })
+              }),
+              _vm._v(" "),
+              _c(
+                "nav",
+                { attrs: { "aria-label": "Page navigation example" } },
+                [
+                  _c("ul", { staticClass: "pagination" }, [
+                    _c("li", { staticClass: "page-item" }, [
+                      _c(
+                        "a",
+                        { staticClass: "page-link", attrs: { href: "#" } },
+                        [_vm._v("Previous")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "page-item" }, [
+                      _c(
+                        "a",
+                        { staticClass: "page-link", attrs: { href: "#" } },
+                        [_vm._v("1")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "page-item" }, [
+                      _c(
+                        "a",
+                        { staticClass: "page-link", attrs: { href: "#" } },
+                        [_vm._v("2")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "page-item" }, [
+                      _c(
+                        "a",
+                        { staticClass: "page-link", attrs: { href: "#" } },
+                        [_vm._v("3")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "page-item" }, [
+                      _c(
+                        "a",
+                        { staticClass: "page-link", attrs: { href: "#" } },
+                        [_vm._v("Next")]
+                      )
+                    ])
+                  ])
+                ]
+              )
+            ],
+            2
+          )
     ],
-    2
+    1
   )
 }
 var staticRenderFns = []
