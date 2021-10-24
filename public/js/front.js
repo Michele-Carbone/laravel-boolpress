@@ -2033,7 +2033,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       baseUri: "http://127.0.0.1:8001",
-      posts: []
+      posts: [],
+      isLoading: false
     };
   },
   methods: {
@@ -2041,10 +2042,14 @@ __webpack_require__.r(__webpack_exports__);
     getPosts: function getPosts() {
       var _this = this;
 
+      this.isLoading = true;
       axios.get("".concat(this.baseUri, "/api/posts")).then(function (res) {
         _this.posts = res.data;
+        _this.isLoading = false;
       })["catch"](function (err) {
         console.error(err);
+      }).then(function () {
+        _this.isLoading = false;
       });
     }
   },
