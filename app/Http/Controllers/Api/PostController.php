@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\Post;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 
 class PostController extends Controller
 {
@@ -14,12 +16,13 @@ class PostController extends Controller
      */
     public function index()
     {
-        // copiando il contenuto dell Api e verificandolo su postman possiamo capire se la chiamata sta funzionando correttamente oppure no
-        return response()->json([
-            'students' => ['Cristina', 'Alessandra', 'Damiano', 'Rocco'],
-            'teacher' => 'Marco',
-            'total' => 32
-        ]);
+        //Per effettuare la chiamata Api dei nostri post per prima cosa importiamo Models/Post sopra
+        //ci chiamiamo tutti i Post
+        //Dato che ci deve restituire un json e dato che abbiamo una collection Laravel lo capisce e non dobbiamo riscrivere tutto quanto come nell esempio del test ma basta richiamarlo all interno di json($posts)
+
+        $posts = Post::all();
+
+        return response()->json($posts);
     }
 
     /**
