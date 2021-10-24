@@ -1965,9 +1965,32 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Posts/PostList.vue?vue&type=script&lang=js& ***!
   \*************************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\laravel\\laravel-boolpress\\resources\\js\\components\\Posts\\PostList.vue: Unexpected token, expected \",\" (15:9)\n\n\u001b[0m \u001b[90m 13 |\u001b[39m     \u001b[36mreturn\u001b[39m { posts\u001b[33m:\u001b[39m [] }\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 14 |\u001b[39m   }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 15 |\u001b[39m   methods{  \u001b[90m//chiamata Api dei post\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 16 |\u001b[39m     getPost(){\u001b[0m\n\u001b[0m \u001b[90m 17 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 18 |\u001b[39m     }\u001b[0m\n    at Parser._raise (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:541:17)\n    at Parser.raiseWithData (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:534:17)\n    at Parser.raise (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:495:17)\n    at Parser.unexpected (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:3550:16)\n    at Parser.expect (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:3524:28)\n    at Parser.parseObjectLike (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:12282:14)\n    at Parser.parseExprAtom (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:11743:23)\n    at Parser.parseExprSubscripts (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:11414:23)\n    at Parser.parseUpdate (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:11394:21)\n    at Parser.parseMaybeUnary (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:11369:23)\n    at Parser.parseMaybeUnaryOrPrivate (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:11183:61)\n    at Parser.parseExprOps (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:11190:23)\n    at Parser.parseMaybeConditional (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:11160:23)\n    at Parser.parseMaybeAssign (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:11123:21)\n    at C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:11081:39\n    at Parser.allowInAnd (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:12922:16)\n    at Parser.parseMaybeAssignAllowIn (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:11081:17)\n    at Parser.parseExportDefaultExpression (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:14353:24)\n    at Parser.parseExport (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:14263:31)\n    at Parser.parseStatementContent (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:13247:27)\n    at Parser.parseStatement (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:13139:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:13728:25)\n    at Parser.parseBlockBody (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:13719:10)\n    at Parser.parseProgram (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:13061:10)\n    at Parser.parseTopLevel (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:13052:25)\n    at Parser.parse (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:14800:10)\n    at parse (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\parser\\lib\\index.js:14852:38)\n    at parser (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\core\\lib\\parser\\index.js:52:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\core\\lib\\transformation\\normalize-file.js:87:38)\n    at normalizeFile.next (<anonymous>)\n    at run (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\core\\lib\\transformation\\index.js:29:50)\n    at run.next (<anonymous>)\n    at Function.transform (C:\\laravel\\laravel-boolpress\\node_modules\\@babel\\core\\lib\\transform.js:25:41)\n    at transform.next (<anonymous>)\n    at step (C:\\laravel\\laravel-boolpress\\node_modules\\gensync\\index.js:261:32)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+// import axios from 'axios';  //importare axios primo metodo //secondo metodo in front.js
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "PostList",
+  data: function data() {
+    return {
+      posts: []
+    };
+  },
+  methods: {
+    //chiamata Api dei post
+    getPosts: function getPosts() {
+      axios.get("http://127.0.0.1:8001/api/posts");
+    }
+  }
+});
 
 /***/ }),
 

@@ -12,11 +12,12 @@ export default {
   data() {
     return { posts: [] };
   },
-  methods{  //chiamata Api dei post
-    getPost(){
-
-    }
-  }
+  methods: {
+    //chiamata Api dei post
+    getPosts() {
+      axios.get("http://127.0.0.1:8001/api/posts");
+    },
+  },
 };
 </script>
 
