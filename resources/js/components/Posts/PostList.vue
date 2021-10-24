@@ -3,18 +3,24 @@
   <section id="post-list">
     <h2>I miei Post</h2>
 
+    <!-- Caricamento della pagina facendolo a tutta pagina l utente non ha la possibilita' di eseguire altre operazioni -->
+    <Loader v-if="isLoading" />
+
+    <!-- Stampiamo tutti i post -->
     <PostCard v-for="post in posts" :key="post.id" :post="post" />
   </section>
 </template>
 
 <script>
 // import axios from 'axios';  //importare axios primo metodo //secondo metodo in front.js
+import Loader from "./Loader.vue";
 import PostCard from "./PostCard.vue";
 
 export default {
   name: "PostList",
   components: {
     PostCard,
+    Loader,
   },
   data() {
     return {
