@@ -163,9 +163,8 @@ JSON = javascript Object Notation
 
 Per i controller Api creiamo una cartella separata pke come detto le Api ci restituiscono un Jason mentre i controller delle pagine ci restituiscono una view(una pagina)
 Per sfruttare al massimo laravel usiamo questo comando php artisan make:controller Api/PostController --api  pke ci creare tutti collegamenti di cui avremo bisogno senza che noi gli facciamo, pke sa che noi voglio usare le Api e ci toglie gli elementi delle CRUD che non ci servono
-
-
-
+Nelle chiamate Api possiamo creare tutte quelle di cui abbiamo bisogno con la:
+Route::resource('posts', 'PostController');
 
 
 
