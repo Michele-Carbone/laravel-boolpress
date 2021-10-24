@@ -69,8 +69,13 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        /*primo metodo
+        $post = Post::findOrFail($id);
+        $post->delete();
+        */
+        //secondo metodo
+        Post::destroy($id);
 
-
+        return response('', 204);    //con un json non ci si aspetta una vera e propria risposta pero' e' utile metterla come in questo caso    //con postman possiamo verifichere se e' corretto quello scritto
     }
 }

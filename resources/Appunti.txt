@@ -166,6 +166,8 @@ Per sfruttare al massimo laravel usiamo questo comando php artisan make:controll
 Nelle chiamate Api possiamo creare tutte quelle di cui abbiamo bisogno con la:
 Route::resource('posts', 'PostController');
 
+Nella chiamata Api destroy quando si alimina un elemento, in json non ci si aspetta una vera e propria risposta pero' e' utile metterla come in questo caso    //con postman possiamo verifichere se e' corretto quello scritto cambiando anche le chiamate mettendo su DELETE e poi su GET ecc..
+
 
 
 
