@@ -4,13 +4,11 @@
     <div class="card-header">{{ post.title }}</div>
     <div class="card-body">
       <p>{{ post.content }}</p>
-      <blockquote class="blockquote mb-0">
-        <footer class="blockquote-footer">
-          <time
-            ><small>Pubblicato il: {{ post.created_at }}</small></time
-          >
-        </footer>
-      </blockquote>
+    </div>
+    <div class="card-footer">
+      <time>
+        <small>Pubblicato il: {{ getFormattedDate(post.created_at) }}</small>
+      </time>
     </div>
   </div>
 </template>
@@ -19,5 +17,18 @@
 export default {
   name: "PostCard",
   props: ["post"],
+  methods: {
+    getFormattedDate(date) {
+      const postDate = new Date(date);
+      const day = postDate.getDate();
+      const month = postDate.getMonth() + 1;
+      const year = postDate.getFullYear();
+
+      if (day < 10) day = "0" + day;
+      if (day < 10) month = "0" + month;
+
+      return `${day}/${month}/${year}`;
+    },
+  },
 };
 </script>
