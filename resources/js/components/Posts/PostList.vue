@@ -11,12 +11,17 @@
       <nav aria-label="Page navigation example">
         <ul class="pagination">
           <!-- Facciamo comparire o scomparire in base alla visualizzazione della pagina corrente -->
-          <li class="page-item" v-if="pagination.currentPage > 1">
+          <li
+            class="page-item"
+            v-if="pagination.currentPage > 1"
+            @click="getPosts(pagination.currentPage - 1)"
+          >
             <a class="page-link">Previous</a>
           </li>
           <li
             class="page-item"
             v-if="pagination.currentPage !== pagination.lastPage"
+            @click="getPosts(pagination.currentPage + 1)"
           >
             <a class="page-link">Next</a>
           </li>
@@ -47,11 +52,11 @@ export default {
   },
   methods: {
     //chiamata Api dei post
-    getPosts() {
+    getPosts(page) {
       this.isLoading = true;
 
       axios
-        .get(`${this.baseUri}/api/posts`)
+        .get(`${this.baseUri}/api/posts?page=${page}`)
         .then((res) => {
           /*
             this.posts = res.data.data; //Aggiunta di un altro data pke abbiamo modificato il Api/PostController.php la index per visualissare solo 5 post  per volta. questo ha comportato la creazione di un oggetto che ha come chiave data(si puo usare postman per vedere il nome della chiave che e' stata passata)

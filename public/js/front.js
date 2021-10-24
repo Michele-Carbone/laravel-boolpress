@@ -2067,6 +2067,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 // import axios from 'axios';  //importare axios primo metodo //secondo metodo in front.js
 
 
@@ -2087,11 +2092,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     //chiamata Api dei post
-    getPosts: function getPosts() {
+    getPosts: function getPosts(page) {
       var _this = this;
 
       this.isLoading = true;
-      axios.get("".concat(this.baseUri, "/api/posts")).then(function (res) {
+      axios.get("".concat(this.baseUri, "/api/posts?page=").concat(page)).then(function (res) {
         /*
           this.posts = res.data.data; //Aggiunta di un altro data pke abbiamo modificato il Api/PostController.php la index per visualissare solo 5 post  per volta. questo ha comportato la creazione di un oggetto che ha come chiave data(si puo usare postman per vedere il nome della chiave che e' stata passata)
           */
@@ -38689,19 +38694,45 @@ var render = function() {
                 [
                   _c("ul", { staticClass: "pagination" }, [
                     _vm.pagination.currentPage > 1
-                      ? _c("li", { staticClass: "page-item" }, [
-                          _c("a", { staticClass: "page-link" }, [
-                            _vm._v("Previous")
-                          ])
-                        ])
+                      ? _c(
+                          "li",
+                          {
+                            staticClass: "page-item",
+                            on: {
+                              click: function($event) {
+                                return _vm.getPosts(
+                                  _vm.pagination.currentPage - 1
+                                )
+                              }
+                            }
+                          },
+                          [
+                            _c("a", { staticClass: "page-link" }, [
+                              _vm._v("Previous")
+                            ])
+                          ]
+                        )
                       : _vm._e(),
                     _vm._v(" "),
                     _vm.pagination.currentPage !== _vm.pagination.lastPage
-                      ? _c("li", { staticClass: "page-item" }, [
-                          _c("a", { staticClass: "page-link" }, [
-                            _vm._v("Next")
-                          ])
-                        ])
+                      ? _c(
+                          "li",
+                          {
+                            staticClass: "page-item",
+                            on: {
+                              click: function($event) {
+                                return _vm.getPosts(
+                                  _vm.pagination.currentPage + 1
+                                )
+                              }
+                            }
+                          },
+                          [
+                            _c("a", { staticClass: "page-link" }, [
+                              _vm._v("Next")
+                            ])
+                          ]
+                        )
                       : _vm._e()
                   ])
                 ]
