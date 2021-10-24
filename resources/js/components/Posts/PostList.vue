@@ -77,5 +77,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.page-item {
+  cursor: pointer;
+}
 </style>
