@@ -2064,6 +2064,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       baseUri: "http://127.0.0.1:8001",
+      //la porta 8001 puo essere modifica in base alla porta di lavoro
       posts: [],
       isLoading: false
     };
@@ -2075,7 +2076,8 @@ __webpack_require__.r(__webpack_exports__);
 
       this.isLoading = true;
       axios.get("".concat(this.baseUri, "/api/posts")).then(function (res) {
-        _this.posts = res.data;
+        _this.posts = res.data.data; //Aggiunta di un altro data pke abbiamo modificato il Api/PostController.php la index per visualissare solo 5 post  per volta. questo ha comportato la creazione di un oggetto che ha come chiave data(si puo usare postman per vedere il nome della chiave che e' stata passata)
+
         _this.isLoading = false;
       })["catch"](function (err) {
         console.error(err);

@@ -24,7 +24,7 @@ export default {
   },
   data() {
     return {
-      baseUri: "http://127.0.0.1:8001",
+      baseUri: "http://127.0.0.1:8001", //la porta 8001 puo essere modifica in base alla porta di lavoro
       posts: [],
       isLoading: false,
     };
@@ -37,7 +37,7 @@ export default {
       axios
         .get(`${this.baseUri}/api/posts`)
         .then((res) => {
-          this.posts = res.data;
+          this.posts = res.data.data; //Aggiunta di un altro data pke abbiamo modificato il Api/PostController.php la index per visualissare solo 5 post  per volta. questo ha comportato la creazione di un oggetto che ha come chiave data(si puo usare postman per vedere il nome della chiave che e' stata passata)
           this.isLoading = false;
         })
         .catch((err) => {

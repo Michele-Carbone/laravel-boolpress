@@ -20,7 +20,7 @@ class PostController extends Controller
         //ci chiamiamo tutti i Post
         //Dato che ci deve restituire un json e dato che abbiamo una collection Laravel lo capisce e non dobbiamo riscrivere tutto quanto come nell esempio del test ma basta richiamarlo all interno di json($posts)
 
-        $posts = Post::all();
+        $posts = Post::paginate(5);
 
         return response()->json($posts);
     }
