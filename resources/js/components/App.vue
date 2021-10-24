@@ -2,7 +2,9 @@
   <div class="container">
     <Header :title="title" />
     <PostList />
-    <main>lista post</main>
+    <main>
+      <PostList />
+    </main>
   </div>
 </template>
 

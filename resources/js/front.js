@@ -6,6 +6,8 @@
 
 require('./bootstrap'); //portati bootstrap
 
+window.axios = require('axios');    //altro modo per importare axios non sara' necesario stanziarlo pke in automatico lo eredita
+
 window.Vue = require('vue');
 
 

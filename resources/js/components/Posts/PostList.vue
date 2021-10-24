@@ -6,9 +6,17 @@
 </template>
 
 <script>
+// import axios from 'axios';  //importare axios primo metodo //secondo metodo in front.js
 export default {
   name: "PostList",
-  props: ["title"],
+  data() {
+    return { posts: [] };
+  },
+  methods{  //chiamata Api dei post
+    getPost(){
+
+    }
+  }
 };
 </script>
 
