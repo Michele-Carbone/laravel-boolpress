@@ -22,7 +22,9 @@ class PostController extends Controller
 
         $posts = Post::all();
 
-        return response()->json($posts);
+        $name = 'Marco';
+        return response()->json(['posts' => $posts, 'name' => $name]);    //questo funziona solo se abbiamo una collection ma se volessimo importare altro allora all interno di json() bascriverlo con compact() oppure con un array associativo 
+        //return response()->json(compact('posts', 'name' )); 
     }
 
     /**
