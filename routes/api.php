@@ -20,5 +20,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
-
+/*Primo metodo di chiamata
 Route::get('/posts', 'Api\PostController@index');   //rotta Api che ci chiama le Api CRUD   //primo parametro per avere l Url per avere le condizioni rest e' posts (nome della risorsa al plurale) //secondo parametro cartella Api/ nome del file controller
+*/
+
+//Massimizzare la scrittura delle Api senza ripetere ogni volta il nome della cartella Api le raggruppiamo con namespace() e con group()
+Route::namespace('Api')->group(function () {
+    Route::get('/posts', 'PostController@index');
+});
