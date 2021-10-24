@@ -10,11 +10,16 @@
       <PostCard v-for="post in posts" :key="post.id" :post="post" />
       <nav aria-label="Page navigation example">
         <ul class="pagination">
-          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          <!-- Facciamo comparire o scomparire in base alla visualizzazione della pagina corrente -->
+          <li class="page-item" v-if="pagination.currentPage > 1">
+            <a class="page-link">Previous</a>
+          </li>
+          <li
+            class="page-item"
+            v-if="pagination.currentPage !== pagination.lastPage"
+          >
+            <a class="page-link">Next</a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -37,6 +42,7 @@ export default {
       baseUri: "http://127.0.0.1:8001", //la porta 8001 puo essere modifica in base alla porta di lavoro
       posts: [],
       isLoading: false,
+      pagination: {},
     };
   },
   methods: {
@@ -55,7 +61,7 @@ export default {
           const { data, current_page, last_page } = res.data; //DESTRUCTURING
           this.posts = data;
 
-          this.isLoading = false;
+          this.pagination = { currentPage: current_page, lastPage: last_page }; //vedere o non vedere la barra di navigazione in base alla pagina che l utente sta visualizzando
         })
         .catch((err) => {
           console.error(err);

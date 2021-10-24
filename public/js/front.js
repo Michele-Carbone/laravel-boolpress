@@ -2062,6 +2062,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 // import axios from 'axios';  //importare axios primo metodo //secondo metodo in front.js
 
 
@@ -2076,7 +2081,8 @@ __webpack_require__.r(__webpack_exports__);
       baseUri: "http://127.0.0.1:8001",
       //la porta 8001 puo essere modifica in base alla porta di lavoro
       posts: [],
-      isLoading: false
+      isLoading: false,
+      pagination: {}
     };
   },
   methods: {
@@ -2098,7 +2104,10 @@ __webpack_require__.r(__webpack_exports__);
             last_page = _res$data.last_page; //DESTRUCTURING
 
         _this.posts = data;
-        _this.isLoading = false;
+        _this.pagination = {
+          currentPage: current_page,
+          lastPage: last_page
+        }; //vedere o non vedere la barra di navigazione in base alla pagina che l utente sta visualizzando
       })["catch"](function (err) {
         console.error(err);
       }).then(function () {
@@ -38630,45 +38639,21 @@ var render = function() {
                 { attrs: { "aria-label": "Page navigation example" } },
                 [
                   _c("ul", { staticClass: "pagination" }, [
-                    _c("li", { staticClass: "page-item" }, [
-                      _c(
-                        "a",
-                        { staticClass: "page-link", attrs: { href: "#" } },
-                        [_vm._v("Previous")]
-                      )
-                    ]),
+                    _vm.pagination.currentPage > 1
+                      ? _c("li", { staticClass: "page-item" }, [
+                          _c("a", { staticClass: "page-link" }, [
+                            _vm._v("Previous")
+                          ])
+                        ])
+                      : _vm._e(),
                     _vm._v(" "),
-                    _c("li", { staticClass: "page-item" }, [
-                      _c(
-                        "a",
-                        { staticClass: "page-link", attrs: { href: "#" } },
-                        [_vm._v("1")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "page-item" }, [
-                      _c(
-                        "a",
-                        { staticClass: "page-link", attrs: { href: "#" } },
-                        [_vm._v("2")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "page-item" }, [
-                      _c(
-                        "a",
-                        { staticClass: "page-link", attrs: { href: "#" } },
-                        [_vm._v("3")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "page-item" }, [
-                      _c(
-                        "a",
-                        { staticClass: "page-link", attrs: { href: "#" } },
-                        [_vm._v("Next")]
-                      )
-                    ])
+                    _vm.pagination.currentPage !== _vm.pagination.lastPage
+                      ? _c("li", { staticClass: "page-item" }, [
+                          _c("a", { staticClass: "page-link" }, [
+                            _vm._v("Next")
+                          ])
+                        ])
+                      : _vm._e()
                   ])
                 ]
               )
