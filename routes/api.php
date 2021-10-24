@@ -37,5 +37,6 @@ Route::get('/posts', 'Api\PostController@index');   //rotta Api che ci chiama le
 //Massimizzare la scrittura delle Api senza ripetere ogni volta il nome della cartella Api le raggruppiamo con namespace() e con group()
 Route::namespace('Api')->group(function () {
     //creazione di tutte le rotte delle Api con un unico comando
-    Route::resource('posts', 'PostController');
+    //Route::resource('posts', 'PostController');
+    Route::get('/posts', 'Api\PostController@index');
 });

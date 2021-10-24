@@ -1,6 +1,8 @@
 
 <template>
-  <div class="card-header">Benvenuti sul {{ title }}</div>
+  <header>
+    <h1 class="text-center">Benvenuti su {{ title }}</h1>
+  </header>
 </template>
 
 <script>
@@ -10,5 +12,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+header {
+  color: forestgreen;
+}
 </style>

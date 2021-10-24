@@ -1,26 +1,22 @@
 <template>
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card">
-          <Header :title="title" />
-
-          <div class="card-body">Sito in costruzione</div>
-        </div>
-      </div>
-    </div>
+    <Header :title="title" />
+    <PostList />
+    <main>lista post</main>
   </div>
 </template>
 
 <script>
 import Header from "./Header.vue";
+import PostList from "./Posts/PostList.vue";
 export default {
   name: "App",
   data() {
-    return { title: "Il mio Blog!!" };
+    return { title: "Boolpress" };
   },
   components: {
     Header,
+    PostList,
   },
 };
 </script>
