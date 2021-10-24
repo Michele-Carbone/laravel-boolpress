@@ -10,13 +10,26 @@
 export default {
   name: "PostList",
   data() {
-    return { posts: [] };
+    return {
+      baseUri: "http://127.0.0.1:8001",
+      posts: [],
+    };
   },
   methods: {
     //chiamata Api dei post
     getPosts() {
-      axios.get("http://127.0.0.1:8001/api/posts");
+      axios
+        .get(`${this.baseUri}/api/posts`)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     },
+  },
+  created() {
+    this.getPosts();
   },
 };
 </script>

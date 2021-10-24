@@ -1981,14 +1981,22 @@ __webpack_require__.r(__webpack_exports__);
   name: "PostList",
   data: function data() {
     return {
+      baseUri: "http://127.0.0.1:8001",
       posts: []
     };
   },
   methods: {
     //chiamata Api dei post
     getPosts: function getPosts() {
-      axios.get("http://127.0.0.1:8001/api/posts");
+      axios.get("".concat(this.baseUri, "/api/posts")).then(function (res) {
+        console.log(res);
+      })["catch"](function (err) {
+        console.error(err);
+      });
     }
+  },
+  created: function created() {
+    this.getPosts();
   }
 });
 
@@ -38305,8 +38313,6 @@ var render = function() {
     { staticClass: "container" },
     [
       _c("Header", { attrs: { title: _vm.title } }),
-      _vm._v(" "),
-      _c("PostList"),
       _vm._v(" "),
       _c("main", [_c("PostList")], 1)
     ],

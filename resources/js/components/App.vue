@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <Header :title="title" />
-    <PostList />
+
     <main>
       <PostList />
     </main>

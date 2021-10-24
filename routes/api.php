@@ -38,5 +38,5 @@ Route::get('/posts', 'Api\PostController@index');   //rotta Api che ci chiama le
 Route::namespace('Api')->group(function () {
     //creazione di tutte le rotte delle Api con un unico comando
     //Route::resource('posts', 'PostController');
-    Route::get('/posts', 'Api\PostController@index');
+    Route::get('/posts', 'PostController@index');
 });
