@@ -2072,6 +2072,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 // import axios from 'axios';  //importare axios primo metodo //secondo metodo in front.js
 
 
@@ -38692,49 +38695,64 @@ var render = function() {
                 "nav",
                 { attrs: { "aria-label": "Page navigation example" } },
                 [
-                  _c("ul", { staticClass: "pagination" }, [
-                    _vm.pagination.currentPage > 1
-                      ? _c(
-                          "li",
-                          {
-                            staticClass: "page-item",
-                            on: {
-                              click: function($event) {
-                                return _vm.getPosts(
-                                  _vm.pagination.currentPage - 1
-                                )
+                  _c(
+                    "ul",
+                    { staticClass: "pagination" },
+                    [
+                      _vm.pagination.currentPage > 1
+                        ? _c(
+                            "li",
+                            {
+                              staticClass: "page-item",
+                              on: {
+                                click: function($event) {
+                                  return _vm.getPosts(
+                                    _vm.pagination.currentPage - 1
+                                  )
+                                }
                               }
-                            }
-                          },
-                          [
-                            _c("a", { staticClass: "page-link" }, [
-                              _vm._v("Previous")
-                            ])
-                          ]
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.pagination.currentPage !== _vm.pagination.lastPage
-                      ? _c(
-                          "li",
-                          {
-                            staticClass: "page-item",
-                            on: {
-                              click: function($event) {
-                                return _vm.getPosts(
-                                  _vm.pagination.currentPage + 1
-                                )
+                            },
+                            [
+                              _c("a", { staticClass: "page-link" }, [
+                                _vm._v("Previous")
+                              ])
+                            ]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm._l(_vm.pagination.lastPage, function(i) {
+                        return _c("li", { key: i, staticClass: "page-item" }, [
+                          _c(
+                            "a",
+                            { staticClass: "page-link", attrs: { href: "#" } },
+                            [_vm._v(_vm._s(i))]
+                          )
+                        ])
+                      }),
+                      _vm._v(" "),
+                      _vm.pagination.currentPage !== _vm.pagination.lastPage
+                        ? _c(
+                            "li",
+                            {
+                              staticClass: "page-item",
+                              on: {
+                                click: function($event) {
+                                  return _vm.getPosts(
+                                    _vm.pagination.currentPage + 1
+                                  )
+                                }
                               }
-                            }
-                          },
-                          [
-                            _c("a", { staticClass: "page-link" }, [
-                              _vm._v("Next")
-                            ])
-                          ]
-                        )
-                      : _vm._e()
-                  ])
+                            },
+                            [
+                              _c("a", { staticClass: "page-link" }, [
+                                _vm._v("Next")
+                              ])
+                            ]
+                          )
+                        : _vm._e()
+                    ],
+                    2
+                  )
                 ]
               )
             ],

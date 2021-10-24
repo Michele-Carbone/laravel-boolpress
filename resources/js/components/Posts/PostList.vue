@@ -18,6 +18,9 @@
           >
             <a class="page-link">Previous</a>
           </li>
+          <li v-for="i in pagination.lastPage" :key="i" class="page-item">
+            <a class="page-link" href="#">{{ i }}</a>
+          </li>
           <li
             class="page-item"
             v-if="pagination.currentPage !== pagination.lastPage"
