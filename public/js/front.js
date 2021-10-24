@@ -2075,6 +2075,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 // import axios from 'axios';  //importare axios primo metodo //secondo metodo in front.js
 
 
@@ -38721,13 +38727,29 @@ var render = function() {
                         : _vm._e(),
                       _vm._v(" "),
                       _vm._l(_vm.pagination.lastPage, function(i) {
-                        return _c("li", { key: i, staticClass: "page-item" }, [
-                          _c(
-                            "a",
-                            { staticClass: "page-link", attrs: { href: "#" } },
-                            [_vm._v(_vm._s(i))]
-                          )
-                        ])
+                        return _c(
+                          "li",
+                          {
+                            key: i,
+                            staticClass: "page-item",
+                            class: { active: _vm.pagination.currentPage === i },
+                            on: {
+                              click: function($event) {
+                                return _vm.getPosts(i)
+                              }
+                            }
+                          },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "page-link",
+                                attrs: { href: "#" }
+                              },
+                              [_vm._v(_vm._s(i))]
+                            )
+                          ]
+                        )
                       }),
                       _vm._v(" "),
                       _vm.pagination.currentPage !== _vm.pagination.lastPage

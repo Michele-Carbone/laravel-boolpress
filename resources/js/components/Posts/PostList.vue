@@ -18,7 +18,13 @@
           >
             <a class="page-link">Previous</a>
           </li>
-          <li v-for="i in pagination.lastPage" :key="i" class="page-item">
+          <li
+            v-for="i in pagination.lastPage"
+            :key="i"
+            class="page-item"
+            :class="{ active: pagination.currentPage === i }"
+            @click="getPosts(i)"
+          >
             <a class="page-link" href="#">{{ i }}</a>
           </li>
           <li
