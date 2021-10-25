@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    //
+    //chimare i tanti post //$category->posts
+
+    public function posts() //importante rispettare la convenzione scrivendo posts al plurale se vogliamo che funzioni
+    {
+        return $this->hasMany('App\Models\Post');   //percorso del collegamento Post
+    }
 }
