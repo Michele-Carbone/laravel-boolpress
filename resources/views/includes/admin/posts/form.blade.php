@@ -49,7 +49,7 @@
             ma nella select non e' possibile farlo ma in alternativa possiamo usare nell option un @if e inserendo l attributo selected. 
             (old('category_id') == $category->id) sta significando che se avevo gia' mandato un valore id se si tienimelo
             si mettono due == pke l old restituisce una stringa mentre l altro ci da un numero--}}
-            <option @if (old('category_id') == $category->id)
+            <option @if (old('category_id', $post->category_id) == $category->id) {{--$post->category_id non facciamo un controllo pke noi gli stiamo chiedendo una proprieta category_id di un modello $post //diverso da $post->category pke qui gli stiamo chiedendo una istanza di una categoria (category) relazionata a questo post ($post) Puo un post non avere una categoria assocciata Si quindi va effettuato il controllo e si spacca  --}}
                 selected
             @endif value="{{ $category->id }}">{{ $category->name }}</option>
         @endforeach
