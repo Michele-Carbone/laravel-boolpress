@@ -58,6 +58,26 @@
         <footer class="d-flex justify-content-center">
             {{ $posts->links()}}
         </footer>
+
+        <section id="posts-by-categories" class="mt-5">
+
+            <div class="row">
+                @foreach ($categories as $category)
+                    <div class="col-md-4">
+                        <h2 class="mb-3">{{ $category->name }}</h2>
+                        {{----}}
+                        @forelse ($category->posts as $post)
+                            <h5 class="my-2"><a href="{{ route('admin.posts.show', $post->id) }}">{{ $post->title }}</a></h5>
+                        @empty Nessun post per questa categoria
+                            
+                        @endforelse
+                    </div>
+                @endforeach
+            </div>
+
+        </section>
+
+
     </div>
     <!-- Messaggi di conferma all utente per l eleminazione del post -->
     @section('scripts')

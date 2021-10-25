@@ -19,10 +19,11 @@ class PostController extends Controller
      */
     public function index()
     {
+        $categories = Category::all();
         //
         $posts = Post::orderBy('id', 'desc')->paginate(10);    //impaginazione di 10 elementi   //ordine per id e decrescente
 
-        return view('admin.posts.index', compact('posts'));
+        return view('admin.posts.index', compact('posts', 'categories'));
     }
 
     /**
