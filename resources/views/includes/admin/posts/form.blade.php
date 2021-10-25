@@ -47,7 +47,8 @@
         @foreach ($categories as $category)
             {{--Per non far cancellare la scelta che abbiamo fatto quando si presente un errore nel form aggiungendo l attrivuto value con old riuscimo a impedire questo,
             ma nella select non e' possibile farlo ma in alternativa possiamo usare nell option un @if e inserendo l attributo selected. 
-            (old('category_id') == $category->id) sta significando che se avevo gia' mandato un valore id se si tienimelo--}}
+            (old('category_id') == $category->id) sta significando che se avevo gia' mandato un valore id se si tienimelo
+            si mettono due == pke l old restituisce una stringa mentre l altro ci da un numero--}}
             <option @if (old('category_id') == $category->id)
                 selected
             @endif value="{{ $category->id }}">{{ $category->name }}</option>
