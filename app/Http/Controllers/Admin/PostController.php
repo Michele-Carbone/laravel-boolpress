@@ -51,7 +51,8 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|string|unique:posts|min:3',
             'content' => 'required|string',
-            'image' => 'string'
+            'image' => 'string',
+            'category_id' => 'nullable|exists:categories,id'    //nella validazione per non darci errore inseriamo sia nullable che exists:categories,id(se esiste il nome della tablella allora metti quello) fungono insieme da ternario pke se non c'e' uno mette l altro e viceversa
         ], [
             'required' => 'Il campo :attribute è obbligatorio',
             'min' => 'Il minimo di caratteri per il campo :attribute è :min',
