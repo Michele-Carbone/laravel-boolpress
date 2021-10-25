@@ -45,7 +45,12 @@
       <select class="form-control" id="category_id" name="category_id">
         <option>Nessuna Categoria</option>
         @foreach ($categories as $category)
-            <option value="{{ $category->id }}">{{ $category->name }}</option>
+            {{--Per non far cancellare la scelta che abbiamo fatto quando si presente un errore nel form aggiungendo l attrivuto value con old riuscimo a impedire questo,
+            ma nella select non e' possibile farlo ma in alternativa possiamo usare nell option un @if e inserendo l attributo selected. 
+            (old('category_id') == $category->id) sta significando che se avevo gia' mandato un valore id se si tienimelo--}}
+            <option @if (old('category_id') == $category->id)
+                selected
+            @endif value="{{ $category->id }}">{{ $category->name }}</option>
         @endforeach
       </select>
     </div>
