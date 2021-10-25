@@ -64,8 +64,11 @@
             <div class="row">
                 @foreach ($categories as $category)
                     <div class="col-md-4">
-                        <h2 class="mb-3">{{ $category->name }}</h2>
-                        {{----}}
+                        <div class="d-flex">
+                            <h2 class="mb-3">{{ $category->name }}</h2>
+                            <p class="text-muted">({{ count($category->posts)}})</p>
+                        </div>
+                        {{--Ogni categoria ha una istanza e per passargli le informazini dei singoli post basta fare la procedra inversa cioe da quella categoria dammi tutti i posts--}}
                         @forelse ($category->posts as $post)
                             <h5 class="my-2"><a href="{{ route('admin.posts.show', $post->id) }}">{{ $post->title }}</a></h5>
                         @empty Nessun post per questa categoria
