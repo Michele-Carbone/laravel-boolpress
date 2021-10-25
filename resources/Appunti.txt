@@ -172,14 +172,36 @@ Laravel ci permette di navigare all interno delle nostre pagine dei post grazie 
 
 
 
+Migration
+Foreign key
+Come già sappiamo, per creare una relazione con un’altra tabella, dobbiamo creare una foreign key. Per crearla abbiamo bisogno di una migration, creiamo quindi una
+colonna di tipo unsignedBigInteger (unsigned vuol dire che non partono dal negativo) //aggiungiamo il nome della tabella, Es: ('user_id') e poi creiamo il vincolo di foreign key indicando a quale colonna di quale tabella si fa riferimento.
+Il codice scritto sopra può essere anche abbreviato in un'unica istruzione.
 
+Database - Le relazioni
+Model - Colleghiamo anche le classi
+Analogamente a come creiamo le foreign key nelle migration (e di conseguenza anche nel database), dovremo mappare le foreign key nei Model.
+Ogni qualvolta dovremo mappare una relazione tra due o più tabelle dovremo creare un mapping tra la tabella principale e la secondaria e in modo inverso anche
+dalla tabella secondaria a quella primaria.
 
+One to One
+Relazione diretta
+Nel Model principale inseriamo una funzione con un nome che identifichi la relazione con l’altra tabella. Nel nostro caso, il Model principale (o indipendente) è User.
+Aggiungiamo il metodo Userinfo() nel quale restituiamo il tipo di relazione hasOne() con il Model secondario UserInfo. come nell esempio della slide 613.
 
+Ma nel model UserInfo?
+Relazione inversa
+Nel Model secondario mappiamo la relazione inversa usando il metodo belongsTo(). Nel nostro caso, inseriamo nel Model secondario UserInfo il metodo user() che
+rappresenta la relazione di dipendenza verso il Model User principale.
+One to Many
+Consideriamo adesso la relazione tra Users e Posts:
 
-
-
-
-
+Relazione diretta Nel Model principale inseriamo una funzione con un nome che identifichi la relazione con l’altra tabella. Nel nostro caso, il Model principale (o
+indipendente) è User. Aggiungiamo il metodo posts() nel quale restituiamo il tipo di relazione hasMany() con il Model secondario Post. Un utente può scrivere diversi post.
+E nel model Post?
+Relazione inversa
+Esattamente come nella relazione One to One, nel Model secondario mappiamo la relazione inversa usando il metodo belongsTo(). Nel nostro caso, inseriamo nel Model
+secondario Post il metodo user() che rappresenta la relazione di dipendenza verso il Model User principale. Un determinato post è scritto da un solo utente.
 
 
 
