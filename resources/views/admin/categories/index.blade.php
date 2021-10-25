@@ -28,7 +28,7 @@
                 <tr>
                     <th scope="row">{{ $category->id }}</th>
                     <td>{{ $category->name }}</td>
-                    <td>{{ $category->color }}</td>
+                    <td><span class="badge badge-pill badge-{{ $category->color ?? 'light'}}">{{ $category->color ?? 'nessuno'}}</span></td>
 
                     <td class="d-flex justify-content-end">
                         <a href="{{ route('admin.categories.show', $category->id) }}" class="btn btn-primary">Vai</a>
