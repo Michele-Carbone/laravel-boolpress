@@ -1,7 +1,13 @@
 
 <template>
   <div class="card my-3">
-    <div class="card-header">{{ post.title }}</div>
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h2>{{ post.title }}</h2>
+
+      <span class="badge badge-pill badge-info">{{
+        post.category.name || "Nessuna"
+      }}</span>
+    </div>
     <div class="card-body">
       <p>{{ post.content }}</p>
     </div>

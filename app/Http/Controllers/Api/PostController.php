@@ -14,13 +14,14 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //Per effettuare la chiamata Api dei nostri post per prima cosa importiamo Models/Post sopra
         //ci chiamiamo tutti i Post
         //Dato che ci deve restituire un json e dato che abbiamo una collection Laravel lo capisce e non dobbiamo riscrivere tutto quanto come nell esempio del test ma basta richiamarlo all interno di json($posts)
 
-        $posts = Post::paginate(5);
+        $order = $request->query('order') ?? 'desc';
+        $posts = Post::with('category')->orderBy('id', $order)->paginate(5);   //with('category') sta a significare che voglio chiamare anche la categoria
 
         return response()->json($posts);
     }

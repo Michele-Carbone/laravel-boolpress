@@ -29,6 +29,8 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->namespace('Admin')->
     Route::get('/', 'HomeController@index')->name('home');
 
     Route::resource('posts', 'PostController');  //rotte per CRUD implementate nella cartella Admin
+
+    Route::resource('categories', 'CategoryController');
 });
 
 
