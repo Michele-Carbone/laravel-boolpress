@@ -16,7 +16,7 @@ class AddForeignCategoryIdOnPostsTable extends Migration
         Schema::table('posts', function (Blueprint $table) {
             //definizione della colonna
 
-            $table->unsignedBigInteger('category_id')->after('id')->nullable(); //aggiungiamo il nome della colonna category_id positionato dopo id
+            //$table->unsignedBigInteger('category_id')->after('id')->nullable(); //aggiungiamo il nome della colonna category_id positionato dopo id
 
             //definizione foreign key
             /*
@@ -25,7 +25,11 @@ class AddForeignCategoryIdOnPostsTable extends Migration
             cancellato il post di una categoria voglio che compaia "set null" sul post e non cancellarla
             Senza di essa non posto' cancellare una categoria fino a quando avro' ancora i post
             */
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
+            //$table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
+
+            /******Versione semplificata di scrittura*******/
+            //e' possibile usarla solo e soltanto se vengono rispettare i nome delle colonne e tutto il resto se no non funziona
+            $table->foreignId('category_id')->after('id')->nullable()->onDelete('set null')->constrained(); //constrained() serve per legare tutto quanto
         });
     }
 
