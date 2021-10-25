@@ -40,6 +40,16 @@
       @enderror
     </div>
 
+    <div class="form-group">
+      <label for="category_id">Categoria</label>
+      <select class="form-control" id="category_id" name="category_id">
+        <option>Nessuna Categoria</option>
+        @foreach ($categories as $category)
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
+        @endforeach
+      </select>
+    </div>
+
     <button type="submit" class="btn btn-success">Salva</button>
 </form>
 
