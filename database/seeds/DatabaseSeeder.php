@@ -12,6 +12,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         //tutto quello che sara' all interno di call() verra' chiamato ogni volta con il comando php artisan db:seed
-        $this->call([PostsTableSeeder::class, CategoriesTableSeeder::class]);
+        $this->call([CategoriesTableSeeder::class, PostsTableSeeder::class]);
     }
 }

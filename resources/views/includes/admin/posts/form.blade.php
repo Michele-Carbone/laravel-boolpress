@@ -43,7 +43,7 @@
     <div class="form-group">
       <label for="category_id">Categoria</label>
       <select class="form-control @error ('category_id') is-invalid @enderror"  id="category_id" name="category_id">
-        <option>Nessuna Categoria</option>
+        <option value="">Nessuna Categoria</option>
         @foreach ($categories as $category)
             {{--Per non far cancellare la scelta che abbiamo fatto quando si presente un errore nel form aggiungendo l attrivuto value con old riuscimo a impedire questo,
             ma nella select non e' possibile farlo ma in alternativa possiamo usare nell option un @if e inserendo l attributo selected. 

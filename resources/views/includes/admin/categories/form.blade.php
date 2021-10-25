@@ -23,12 +23,12 @@
     <div class="form-group">
       <label for="color">Colore</label>
       <select class="form-control @error('color') is-invalid @enderror"  id="color" name="color" >
-        <option>Nessun Colore</option>
-        <option @if (old('color', $category->color) == $category->color) selected  @endif value="danger">Rosso</option>
-        <option @if (old('color', $category->color) == $category->color) selected  @endif value="success">Verde</option>
-        <option @if (old('color', $category->color) == $category->color) selected  @endif value="warning">Giallo</option>
-        <option @if (old('color', $category->color) == $category->color) selected  @endif value="secondary">Grigio</option>
-        <option @if (old('color', $category->color) == $category->color) selected  @endif value="primary">Blu</option>
+        <option value="">Nessun Colore</option>
+        <option @if (old('color', $category->color) && old('color', $category->color) == $category->color) selected  @endif value="danger">Rosso</option>
+        <option @if (old('color', $category->color) && old('color', $category->color) == $category->color) selected  @endif value="success">Verde</option>
+        <option @if (old('color', $category->color) && old('color', $category->color) == $category->color) selected  @endif value="warning">Giallo</option>
+        <option @if (old('color', $category->color) && old('color', $category->color) == $category->color) selected  @endif value="secondary">Grigio</option>
+        <option @if (old('color', $category->color) && old('color', $category->color) == $category->color) selected  @endif value="primary">Blu</option>
       </select>
       @error('color')
         <div class="invalid-feedback">
