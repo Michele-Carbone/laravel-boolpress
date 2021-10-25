@@ -31,7 +31,7 @@ class CategoryController extends Controller
     public function create()
     {
         //
-        return view('admin.categories.create', ['categories' => new Category()]);
+        return view('admin.categories.create', ['category' => new Category()]);
     }
 
     /**
@@ -78,7 +78,7 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
         //
 
