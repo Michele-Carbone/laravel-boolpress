@@ -92,7 +92,9 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         //
-        return view('admin.posts.edit', compact('post'));
+        $categories = Category::all();  //importiamo categori pke nella modifica del fomr e' necessario per far si che non ci dia errore
+
+        return view('admin.posts.edit', compact('post', 'categories'));
     }
 
     /**
