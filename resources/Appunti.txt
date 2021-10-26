@@ -210,6 +210,6 @@ PER CANCELLARE TUTTO IL DB E PULIRE TUTTO QUANTO PER POI RIEMPIRLO NUOVAMENTE (s
 php artisan migrate:fresh --seed        //      php artisan migrate:refresh --seed
 
 
-
+php artisan make:model UserInfo -m -c -resource     //migration //controller //tutte le rotte
 
 
