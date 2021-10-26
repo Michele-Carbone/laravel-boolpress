@@ -16,7 +16,7 @@ class CreateTagsTable extends Migration
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->char('color')->default('#ffffff');  //Char() stringa di lunghezza definita
+            $table->char('color', 7)->default('#ffffff');  //Char() stringa di lunghezza definita
             $table->timestamps();
         });
     }

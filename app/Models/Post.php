@@ -32,4 +32,10 @@ class Post extends Model
         //Passare il secondo parametro per dirgli dove deve cerca
         return $this->belongsTo('App\User', 'user_id');
     }
+
+    //un post puo avere molti tag
+    public function posts()
+    {
+        return $this->belongsTo('App\Models\Tag');
+    }
 }
