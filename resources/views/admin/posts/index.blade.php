@@ -37,7 +37,8 @@
                             
                         @endif
                     </td>
-                    <td>@if ($post->user){{ $post->user->name }}  @else Anonimo  @endif </td>
+                    <!--Cambiare la ricerca da user a author-->
+                    <td>@if ($post->author){{ $post->author->name }}  @else Anonimo  @endif </td>
                     <td>{{ $post->getFormattedDate('created_at') }}</td>
                     <td class="d-flex justify-content-end">
                         <a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-primary">Vai</a>
