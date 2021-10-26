@@ -21,7 +21,7 @@ class PostController extends Controller
         //Dato che ci deve restituire un json e dato che abbiamo una collection Laravel lo capisce e non dobbiamo riscrivere tutto quanto come nell esempio del test ma basta richiamarlo all interno di json($posts)
 
         $order = $request->query('order') ?? 'desc';
-        $posts = Post::with('category')->orderBy('id', $order)->paginate(5);   //with('category') sta a significare che voglio chiamare anche la categoria
+        $posts = Post::with(['category', 'author'])->orderBy('id', $order)->paginate(5);   //with(['category', 'author']) in questo array mettiamo author come altro elemento da prendere pke nel Model Post.php abbiamo scritto la funzione author()
 
         return response()->json($posts);
     }
