@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 */
 
-Auth::routes(['register' => false]);  //register =>false lo facciamo pke il blog che stiamo creando non dara' accesso ad altri users
+Auth::routes(['register' => true]);  //register =>false lo facciamo pke il blog che stiamo creando non dara' accesso ad altri users
 
 
 

@@ -10,7 +10,7 @@
             </div>
         @endif
         <header class="text-center my-5 d-flex justify-content-between align-items-center ">
-            <h1 class="font-weight-bold">I MIEI POST</h1>
+            <h1 class="font-weight-bold">Categorie</h1>
             <a href="{{ route('admin.categories.create') }}" class="btn btn-success">Nuova Categoria</a>
         </header>
         
@@ -28,7 +28,7 @@
                 <tr>
                     <th scope="row">{{ $category->id }}</th>
                     <td>{{ $category->name }}</td>
-                    <td><span class="badge badge-pill badge-{{ $category->color ?? 'light'}}">{{ $category->color ?? 'nessuno'}}</span></td>
+                   <td><span class="badge badge-pill badge-{{ $category->color}}">{{ $category->color ?? 'nessuno'}}</span></td>
 
                     <td class="d-flex justify-content-end">
                         <a href="{{ route('admin.categories.show', $category->id) }}" class="btn btn-primary">Vai</a>

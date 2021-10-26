@@ -28,7 +28,7 @@ class CategoriesTableSeeder extends Seeder
             $newCategory = new Category();
 
             $newCategory->name = $category['name'];
-            $newCategory->color = $category['name'];
+            $newCategory->color = $category['color'];
             $newCategory->slug = Str::slug($category['name'], '-');
 
             $newCategory->save();

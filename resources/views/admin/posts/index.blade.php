@@ -30,8 +30,8 @@
                     <th scope="row">{{ $post->id }}</th>
                     <td>{{ $post->title }}</td>
                     <td>
-                        @if ($post->category)
-                            <span class="badge badge-pill badge-info px-3">{{ $post->category->name }}</span>
+                        @if ($post->category) 
+                        <span class="badge badge-pill badge-{{ $post->category->color ?? 'light'}}">{{ $post->category->name ?? 'nessuno'}}</span>
                         @else 
                             
                         @endif

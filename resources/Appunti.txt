@@ -206,7 +206,8 @@ secondario Post il metodo user() che rappresenta la relazione di dipendenza vers
 
 
 
-
+PER CANCELLARE TUTTO IL DB E PULIRE TUTTO QUANTO PER POI RIEMPIRLO NUOVAMENTE (si usano entrambi i metodi)
+php artisan migrate:fresh --seed        //      php artisan migrate:refresh --seed
 
 
 

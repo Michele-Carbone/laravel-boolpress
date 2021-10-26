@@ -3,9 +3,10 @@
 
 use Illuminate\Support\Str;     //importiamo str
 use App\Models\Post;        //importiamo post
-
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;        //as vuol dire alias //importiamo FAker
+use Illuminate\Support\Arr;
 
 class PostsTableSeeder extends Seeder
 {
@@ -52,10 +53,15 @@ class PostsTableSeeder extends Seeder
             $newPost->save();
         }*/
 
+        //tutte le categorie come oggetto categoria solo con id
+        $categories_id = Category::select('id')->pluck('id')->toArray(); //toArray() ci da un array di oggetti
 
         //FAKER creaiamo 50 post
         for ($i = 0; $i < 50; $i++) {
             $post = new Post();
+
+            //ASSEGNARE A CASO UNA CATEGORIA
+            $post->category_id = Arr::random($categories_id);   //tramite Arr ci permette di randomizzare una categoria per ogni post
 
             $post->title = $faker->text(50);    // il 50 sta a indicare i caratteri e non le parole
             $post->content = $faker->paragraphs(2, true);

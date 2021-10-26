@@ -23,7 +23,8 @@
     <div class="form-group">
       <label for="color">Colore</label>
       <select class="form-control @error('color') is-invalid @enderror"  id="color" name="color" >
-        <option value="">Nessun Colore</option>
+        <option >Nessun Colore</option>
+        {{--Da verificare successivamente if--}}
         <option @if (old('color', $category->color) && old('color', $category->color) == $category->color) selected  @endif value="danger">Rosso</option>
         <option @if (old('color', $category->color) && old('color', $category->color) == $category->color) selected  @endif value="success">Verde</option>
         <option @if (old('color', $category->color) && old('color', $category->color) == $category->color) selected  @endif value="warning">Giallo</option>
