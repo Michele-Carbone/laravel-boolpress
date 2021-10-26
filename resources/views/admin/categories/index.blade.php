@@ -20,6 +20,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Colore</th>
+                <th scope="col">N. Post</th>
                 <th scope="col"></th>
               </tr>
             </thead>
@@ -28,8 +29,8 @@
                 <tr>
                     <th scope="row">{{ $category->id }}</th>
                     <td>{{ $category->name }}</td>
-                   <td><span class="badge badge-pill badge-{{ $category->color}}">{{ $category->color ?? 'nessuno'}}</span></td>
-
+                    <td><span class="badge badge-pill badge-{{ $category->color}}">{{ $category->color ?? 'nessuno'}}</span></td>
+                    <td> @if ($category->posts){{ count($category->posts) }} @else 0  @endif </td>
                     <td class="d-flex justify-content-end">
                         <a href="{{ route('admin.categories.show', $category->id) }}" class="btn btn-primary">Vai</a>
                         <a href="{{ route('admin.categories.edit', $category->id) }}" class="btn btn-warning ml-2">Modifica</a>
