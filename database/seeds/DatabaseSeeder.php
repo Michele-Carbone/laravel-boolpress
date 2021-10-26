@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UsersTableSeeder::class, //va inserito prima di post
             CategoriesTableSeeder::class,
+            TagsTableSeeder::class,     //e' un entita' piu' forte dei post
             PostsTableSeeder::class
         ]);
     }

@@ -213,3 +213,26 @@ php artisan migrate:fresh --seed        //      php artisan migrate:refresh --se
 php artisan make:model UserInfo -m -c -resource     //migration //controller //tutte le rotte
 
 
+Relazioni   Many to Many
+Nel caso delle relazioni Many to Many non c'è una tabella principale e una secondaria, ma per indicare il tipo di relazione si usa sempre la funzione belongsToMany() in
+entrambe le direzioni. Nel Model User inseriamo quindi una funzione roles() per identificare la relazione con il Model Role. Un utente può avere diversi ruoli.
+Inversa Many to Many
+Nel Model Role inseriamo una funzione users() in cui restituiamo lo stesso tipo di relazione belongsToMany() con il Model User. Un ruolo appartiene a più utenti.
+E la tabella ponte?
+In una relazione Many to Many sappiamo che la relazione è rappresentata da una tabella ponte o pivot che contiene gli id dei record delle due tabelle.
+Abbiamo quindi bisogno di creare una migration per questa tabella.
+Inserire i dati nella tabella ponte abbiamo bisogno di:
+Attach e Detach
+Per scrivere all’interno della tabella pivot, creando quindi una relazione tra due record, possiamo utilizzare il metodo attach() 
+Per cancellare righe dalla tabella pivot e quindi eliminare la relazione tra due record, usiamo il metodo detach()
+Detach puo' essere usato in tre modi diversi:
+- Passo un id e stacco quella relazione;
+- Passo un array di id e quindi stacco in una solo volta piu relazioni ;
+- Non passo nulla e stacco tutte le relazioni di quel modello (Esempio la cancellazione dell utente);
+Sync
+Per aggiungere ed eliminare contemporaneamente dei record all’interno della tabella pivot possiamo utilizzare il metodo sync()
+La funzione sync() accetta come parametro un array di id da inserire nella tabella ponte. Gli id già presenti nella tabella pivot e che non si trovano nell’array verranno rimossi.
+
+
+
+
