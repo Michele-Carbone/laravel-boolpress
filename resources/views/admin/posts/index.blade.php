@@ -20,6 +20,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Titolo</th>
                 <th scope="col">Categoria</th>
+                <th scope="col">Autore</th>
                 <th scope="col">Scritto il</th>
                 <th scope="col"></th>
               </tr>
@@ -36,7 +37,8 @@
                             
                         @endif
                     </td>
-                    <td>{{ $post->getFormattedDate('created_at', 'd-m-Y') }}</td>
+                    <td>@if ($post->user){{ $post->user->name }}  @else Anonimo  @endif </td>
+                    <td>{{ $post->getFormattedDate('created_at') }}</td>
                     <td class="d-flex justify-content-end">
                         <a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-primary">Vai</a>
                         <a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-warning ml-2">Modifica</a>
