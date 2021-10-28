@@ -57,7 +57,9 @@ class PostController extends Controller
             'title' => 'required|string|unique:posts|min:3',
             'content' => 'required|string',
             'image' => 'string',
-            'category_id' => 'nullable|exists:categories,id'    //nella validazione per non darci errore inseriamo sia nullable che exists:categories,id(se esiste il nome della tablella allora metti quello) fungono insieme da ternario pke se non c'e' uno mette l altro e viceversa
+            'category_id' => 'nullable|exists:categories,id',    //nella validazione per non darci errore inseriamo sia nullable che exists:categories,id(se esiste il nome della tablella allora metti quello) fungono insieme da ternario pke se non c'e' uno mette l altro e viceversa
+            'tags' => 'nullable|exists:tags,id'     //nella validazione accettiamo il nullable ma per evitare che uno possa manovrare l html con exists vengono accettati soli i valori che sono presenti all interno della tabella al contrario non verranno accettati
+
         ], [
             'required' => 'Il campo :attribute è obbligatorio',
             'min' => 'Il minimo di caratteri per il campo :attribute è :min',
@@ -73,6 +75,12 @@ class PostController extends Controller
         $post->slug = Str::slug($post->title, '-');
 
         $post->save();
+        /*
+        // dato che save() ci crea il post e non prima la validazione del tags va messa dopo facendo un verifica
+        //se ho dei tags creo la validazione
+        //array_key_exists() Se esiste la chiave tags in $data allora passami */
+        if (array_key_exists('tags', $data)) $post->tags()->attach($data['tags']);   //prendo il post appena creato chiamo la relazione tags() e lo concateno con attach() // attach() regge come parametro o un id oppure un array di id
+
 
         return redirect()->route('admin.posts.show', compact('post'));
     }

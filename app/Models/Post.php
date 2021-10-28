@@ -34,8 +34,8 @@ class Post extends Model
     }
 
     //un post puo avere molti tag
-    public function posts()
+    public function tags()
     {
-        return $this->belongsTo('App\Models\Tag');
+        return $this->belongsToMany('App\Models\Tag');
     }
 }

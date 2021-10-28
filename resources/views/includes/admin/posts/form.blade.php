@@ -80,7 +80,12 @@
     @endforeach
     
   </div>
-
+  {{----validazione del tag
+  @error('tags')
+  <div class="invalid-feedback">
+    {{ $message}}
+  </div>
+  @enderror --}}
   
   <button type="submit" class="btn btn-success">Salva</button>
 </form>
