@@ -158,6 +158,9 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        //Prima di cancellare il post per sicurezza cancello i tag 
+        if (count($post->tags)) $post->tags()->detach();
+
         //
         $post->delete();
         return redirect()->route('admin.posts.index')->with('alert-message', 'Post cancellato con successo')->with('alert-type', 'danger');
