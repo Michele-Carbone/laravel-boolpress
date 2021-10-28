@@ -12,8 +12,14 @@
         <h4>Categoria: @if ($post->category) {{ $post->category->name }}  @else Nessuna Categoria  @endif </h4>
         <p>{{ $post->content }}</p>
         <address>Pubblicato il:{{ $post->getFormattedDate('created_at') }}</address>
-        
+        <div class="d-flex justify-content-start">
+            @foreach ($post->tags as $tag)
 
+        
+            <h4><span class="badge badge-secondary display-3  mr-3" style="background-color: {{$tag->color}}">{{ $tag->name }}</span></h4>
+        
+            @endforeach
+        </div>
         <div class="d-flex justify-content-between my-5">
             <a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-warning ml-2">Modifica</a>
                         <form action="{{ route('admin.posts.destroy', $post->id) }}" method="post" class="delete-button">

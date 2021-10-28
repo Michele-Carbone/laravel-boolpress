@@ -20,6 +20,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Titolo</th>
                 <th scope="col">Categoria</th>
+                <th scope="col">Tags</th>
                 <th scope="col">Autore</th>
                 <th scope="col">Scritto il</th>
                 <th scope="col"></th>
@@ -36,6 +37,15 @@
                         @else 
                             
                         @endif
+                    </td>
+                    <td>
+                        @forelse ($post->tags as $tag)
+                            <span class="badge badge-pill" style="background-color: {{$tag->color}}">
+                                {{ $tag->name }}
+                            </span>
+                        @empty
+                            
+                        @endforelse
                     </td>
                     <!--Cambiare la ricerca da user a author-->
                     <td>@if ($post->author){{ $post->author->name }}  @else Anonimo  @endif </td>
