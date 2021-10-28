@@ -109,8 +109,10 @@ class PostController extends Controller
         $tags = Tag::all(); //importiamo il tags in modo da poterlo vedere nell edit(in modifica)
         //
         $categories = Category::all();  //importiamo categori pke nella modifica del fomr e' necessario per far si che non ci dia errore
-
-        return view('admin.posts.edit', compact('tags', 'post', 'categories'));
+        //recupero id del post che vogliamo evitare di prendere
+        //prendiamo il tagIds che deve contenere tutti gli ids e con toArray() abbiamo solo l array ids e non una collection
+        $tagIds = $post->tags->pluck('id')->toArray();
+        return view('admin.posts.edit', compact('tags', 'post', 'tagIds', 'categories'));
     }
 
     /**

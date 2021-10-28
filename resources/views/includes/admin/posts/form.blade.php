@@ -70,7 +70,8 @@
         {{-- nel velue mettiamo l id pke e' quello che ci arrivera' dal Db cosi ogniuno avra' il suo id  // il name e' importante pke il liguaggio di backend cerca proprio il name e sara' uguale per tutti e scriviamo tags[] in modo da raccoglierli tutti in un unico array --}}
         {{-- nell input tramite attributo booleano  checked ci permetteraà di salvare le box selezionate anche quando il form mostra degli errori di compilazione proprio come fa old()--}}
         <input class="form-check-input" type="checkbox" id="tag-{{$tag->id}}" value="{{$tag->id}}" name="tags[]" 
-        @if (in_array($tag->id, old('tags',[]))) {{---Se in questo array c'e l id di questo checkbox se si metti check se no non metterlo --}}
+        {{---Se in questo array c'e l id di questo checkbox se si metti check se no non metterlo --}}
+        @if (in_array($tag->id, old('tags', $tagIds ?? []))) {{-- In old come secondo parametro per fare il check abbiamo bisogno di un array id  //se ti trovi questa variabile $tagIds usalo altrimenti usa un array vuoto --}}
             checked
         @endif>
         {{--il nome dell id deve essere uguale al for pke nel momento in cui si fa il check sulla scritta del label voglio che si spunti anche il quadratino per questo devono coincidere dato che non possiamo inseire tags pke se no ne avremmo piu di uno uguale allora dobbiamo separarlo    --}}
