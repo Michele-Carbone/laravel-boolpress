@@ -106,9 +106,11 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         //
+        $tags = Tag::all(); //importiamo il tags in modo da poterlo vedere nell edit(in modifica)
+        //
         $categories = Category::all();  //importiamo categori pke nella modifica del fomr e' necessario per far si che non ci dia errore
 
-        return view('admin.posts.edit', compact('post', 'categories'));
+        return view('admin.posts.edit', compact('tags', 'post', 'categories'));
     }
 
     /**
